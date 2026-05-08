@@ -1,0 +1,103 @@
+.pageHeader {
+  padding-top: calc(var(--navbar-height) + 60px);
+  padding-bottom: 60px;
+  background: var(--primary);
+  text-align: center;
+}
+
+.pageHeader h1 { font-size: 36px; color: var(--white); text-transform: uppercase; margin-bottom: 8px; }
+.pageHeader p { font-size: 15px; color: rgba(255, 255, 255, 0.8); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.card {
+  text-align: center;
+  padding: 40px 25px;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.cardIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 30px;
+}
+
+.card h3 {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--gray-800);
+}
+
+.card p {
+  font-size: 13px;
+  color: var(--gray-500);
+  line-height: 1.7;
+}
+
+/* Commitment */
+.commitment {
+  background: var(--off-white);
+  border-radius: 16px;
+  padding: 50px;
+  text-align: center;
+}
+
+.commitment h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.commitment > p {
+  font-size: 14px;
+  color: var(--gray-500);
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.8;
+}
+
+.commitPoints {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 550px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.commitItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.commitItem i {
+  color: var(--primary);
+  font-size: 16px;
+}
+
+@media (max-width: 992px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .commitment { padding: 30px 20px; } .commitPoints { grid-template-columns: 1fr; } }

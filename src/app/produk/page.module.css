@@ -1,0 +1,127 @@
+.pageHeader {
+  padding-top: calc(var(--navbar-height) + 60px);
+  padding-bottom: 60px;
+  background: var(--primary);
+  text-align: center;
+}
+
+.pageHeader h1 {
+  font-size: 36px;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.pageHeader p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.filterBtn {
+  padding: 10px 24px;
+  border: 2px solid var(--gray-200);
+  border-radius: 80px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--gray-600);
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+
+.filterBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filterActive {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.cardImage {
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #f0efe8, #e8e6de);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: var(--primary);
+}
+
+.cardBody {
+  padding: 20px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  background: rgba(132, 145, 120, 0.12);
+  color: var(--primary-dark);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.cardBody h3 {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--gray-800);
+}
+
+.cardBody p {
+  font-size: 12px;
+  color: var(--gray-500);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  transition: gap 0.3s;
+}
+
+.cardLink:hover { gap: 10px; }
+
+@media (max-width: 992px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }

@@ -1,103 +1,182 @@
 .pageHeader {
-  padding-top: calc(var(--navbar-height) + 60px);
-  padding-bottom: 60px;
-  background: var(--primary);
+  background: var(--dark-bg);
+  padding: 140px 0 60px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.pageHeader h1 { font-size: 36px; color: var(--white); text-transform: uppercase; margin-bottom: 8px; }
-.pageHeader p { font-size: 15px; color: rgba(255, 255, 255, 0.8); }
+.pageHeader::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -15%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--primary-rgb), 0.06) 0%, transparent 70%);
+}
 
+.headerBadge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  padding: 6px 16px;
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: var(--radius-full);
+  background: rgba(201, 169, 110, 0.06);
+}
+
+.pageHeader h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.pageHeader h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.pageHeader p {
+  font-size: 15px;
+  color: var(--dark-text-muted);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 24px;
   margin-bottom: 60px;
 }
 
 .card {
-  text-align: center;
-  padding: 40px 25px;
   background: var(--white);
   border: 1px solid var(--gray-100);
-  border-radius: 12px;
-  transition: all 0.3s;
+  border-radius: var(--radius-lg);
+  padding: 36px 24px;
+  text-align: center;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
 }
 
 .cardIcon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
-  font-size: 30px;
+  font-size: 28px;
+  border: 1px solid;
+  transition: transform var(--transition);
+}
+
+.card:hover .cardIcon {
+  transform: scale(1.1);
 }
 
 .card h3 {
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: var(--gray-800);
 }
 
 .card p {
   font-size: 13px;
   color: var(--gray-500);
-  line-height: 1.7;
+  line-height: 1.8;
+}
+
+.cardAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.card:hover .cardAccent {
+  opacity: 1;
 }
 
 /* Commitment */
 .commitment {
   background: var(--off-white);
-  border-radius: 16px;
-  padding: 50px;
-  text-align: center;
+  border-radius: var(--radius-lg);
+  padding: 60px;
+  border: 1px solid var(--gray-100);
 }
 
-.commitment h2 {
-  font-size: 28px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
+.commitContent {
+  max-width: 640px;
 }
 
-.commitment > p {
+.commitContent h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 16px;
+}
+
+.commitContent h2 em {
+  font-style: italic;
+  color: var(--primary);
+}
+
+.commitContent > p {
   font-size: 14px;
   color: var(--gray-500);
-  max-width: 600px;
-  margin: 0 auto 30px;
   line-height: 1.8;
+  margin-bottom: 28px;
 }
 
 .commitPoints {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 16px;
-  max-width: 550px;
-  margin: 0 auto;
-  text-align: left;
 }
 
 .commitItem {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+}
+
+.commitItem svg {
+  flex-shrink: 0;
+}
+
+.commitItem span {
   font-size: 14px;
   font-weight: 500;
   color: var(--gray-700);
 }
 
-.commitItem i {
-  color: var(--primary);
-  font-size: 16px;
+@media (max-width: 992px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 992px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .commitment { padding: 30px 20px; } .commitPoints { grid-template-columns: 1fr; } }
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto 60px; }
+  .commitment { padding: 40px 24px; }
+  .pageHeader { padding: 120px 0 50px; }
+}

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import ScrollReveal from '@/components/ScrollReveal';
 import styles from './page.module.css';
 
 const categories = [
@@ -11,16 +12,14 @@ const categories = [
 ];
 
 const products = [
-  { name: 'Food Pail', tag: 'Food Grade', cat: 'fnb', desc: 'Kemasan food pail custom untuk berbagai jenis makanan.', image: 'https://www.printwork.id/images/product-img1.webp' },
-  { name: 'Lunch Box', tag: 'Food Grade', cat: 'fnb', desc: 'Kotak makan siang dengan desain custom sesuai brand Anda.', image: 'https://www.printwork.id/images/product-img2.webp' },
-  { name: 'Kotak Burger', tag: 'Food Grade', cat: 'fnb', desc: 'Kemasan burger custom dengan berbagai ukuran.', image: 'https://www.printwork.id/images/product-img3.webp' },
-  { name: 'Kantong Makanan', tag: 'Food Grade', cat: 'fnb', desc: 'Paper bag makanan food grade untuk take away.', image: 'https://www.printwork.id/images/product-img4.webp' },
-  { name: 'Paper Bowl', tag: 'Food Grade', cat: 'fnb', desc: 'Mangkuk kertas untuk soup, rice bowl, dan lainnya.', image: 'https://www.printwork.id/images/product-img7.webp' },
-  { name: 'Skincare Box', tag: 'Premium', cat: 'skincare', desc: 'Kemasan premium untuk produk skincare dan kecantikan.', image: 'https://www.printwork.id/images/product-img5.webp' },
-  { name: 'Serum Box', tag: 'Premium', cat: 'skincare', desc: 'Box serum dengan finishing mewah dan elegan.', image: 'https://www.printwork.id/images/product-img6.webp' },
-  { name: 'Gift Box', tag: 'Premium', cat: 'premium', desc: 'Kotak hadiah premium dengan desain eksklusif.', image: 'https://www.printwork.id/images/project-img1.webp' },
-  { name: 'Rigid Box', tag: 'Premium', cat: 'premium', desc: 'Hardbox premium dengan finishing hot stamp dan emboss.', image: 'https://www.printwork.id/images/project-img2.webp' },
-  { name: 'Mailer Box', tag: 'Shipping', cat: 'shipping', desc: 'Box pengiriman e-commerce dengan cetak custom.', image: 'https://www.printwork.id/images/product-img8.webp' },
+  { name: 'Lunch Box & Pail', tag: 'Food Grade', cat: 'fnb', desc: 'Kemasan makanan dengan bahan food grade berkualitas tinggi.', image: '/printwork/lunchbox-ek-jumbo-1.webp' },
+  { name: 'Dus Nasi & Martabak', tag: 'Custom', cat: 'fnb', desc: 'Kemasan nasi dan martabak custom sesuai brand Anda.', image: '/printwork/lunchbox-fg-jumbo-1.webp' },
+  { name: 'Dus Fried Chicken', tag: 'Food Grade', cat: 'fnb', desc: 'Kemasan khusus ayam goreng, tahan minyak dan food grade.', image: '/printwork/fc-box-l-1.webp' },
+  { name: 'Kantong Kertas', tag: 'Eco Friendly', cat: 'fnb', desc: 'Paper bag ramah lingkungan untuk berbagai kebutuhan.', image: '/printwork/paperbag-m-1.webp' },
+  { name: 'Packaging & Hard Box', tag: 'Premium', cat: 'premium', desc: 'Kotak kaku premium untuk produk high-end Anda.', image: '/printwork/standing-pouch-paper-metalized-1.webp' },
+  { name: 'Sachet & Standing Pouch', tag: 'Custom', cat: 'premium', desc: 'Pouch fleksibel untuk kopi, bumbu, snack, dan lainnya.', image: '/printwork/sachet-paper-metalized-1.webp' },
+  { name: 'Food Wrapping Paper', tag: 'Food Grade', cat: 'fnb', desc: 'Kertas bungkus makanan food grade bersertifikasi BPOM.', image: '/printwork/gusset-paper-metalized-1.webp' },
+  { name: 'Kemasan Lainnya', tag: 'Custom', cat: 'premium', desc: 'Berbagai jenis packaging custom sesuai kebutuhan bisnis.', image: '/printwork/food-pail-m-1.webp' },
 ];
 
 export default async function ProdukPage({ searchParams }: { searchParams: Promise<{ cat?: string }> }) {
@@ -32,54 +31,65 @@ export default async function ProdukPage({ searchParams }: { searchParams: Promi
     <>
       <section className={styles.pageHeader}>
         <div className="container">
-          <h1>Produk Kami</h1>
-          <p>Berbagai jenis custom packaging untuk kebutuhan bisnis Anda</p>
+          <ScrollReveal>
+            <span className={styles.headerBadge}>Katalog Produk</span>
+            <h1>Produk <em>Kami</em></h1>
+            <p>Berbagai jenis custom packaging berkualitas untuk kebutuhan bisnis Anda</p>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          {/* Filter */}
-          <div className={styles.filters}>
-            {categories.map((cat) => (
-              <Link
-                key={cat.id}
-                href={cat.id === 'all' ? '/produk' : `/produk?cat=${cat.id}`}
-                className={`${styles.filterBtn} ${activeCat === cat.id ? styles.filterActive : ''}`}
-              >
-                {cat.label}
-              </Link>
-            ))}
-          </div>
+          <ScrollReveal>
+            <div className={styles.filters}>
+              {categories.map((cat) => (
+                <Link
+                  key={cat.id}
+                  href={cat.id === 'all' ? '/produk' : `/produk?cat=${cat.id}`}
+                  className={`${styles.filterBtn} ${activeCat === cat.id ? styles.filterActive : ''}`}
+                >
+                  {cat.label}
+                </Link>
+              ))}
+            </div>
+          </ScrollReveal>
 
-          {/* Products Grid */}
-          <div className={styles.grid}>
-            {filtered.map((p) => (
-              <div key={p.name} className={styles.card}>
-                <div className={styles.cardImage}>
-                  <Image
-                    src={p.image}
-                    alt={p.name}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                  />
+          <ScrollReveal delay={100} stagger>
+            <div className={styles.grid}>
+              {filtered.map((p) => (
+                <div key={p.name} className={styles.card}>
+                  <div className={styles.cardImage}>
+                    <Image src={p.image} alt={p.name} fill style={{ objectFit: 'cover' }} />
+                    <div className={styles.cardOverlay}>
+                      <a
+                        href={`https://wa.me/6281113000966?text=Halo,%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(p.name)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.overlayBtn}
+                      >
+                        Tanya Produk Ini
+                      </a>
+                    </div>
+                    <span className={styles.tag}>{p.tag}</span>
+                  </div>
+                  <div className={styles.cardBody}>
+                    <h3>{p.name}</h3>
+                    <p>{p.desc}</p>
+                    <a
+                      href={`https://wa.me/6281113000966?text=Halo,%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(p.name)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.cardLink}
+                    >
+                      Detail klik disini
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </a>
+                  </div>
                 </div>
-                <div className={styles.cardBody}>
-                  <span className={styles.tag}>{p.tag}</span>
-                  <h3>{p.name}</h3>
-                  <p>{p.desc}</p>
-                  <a
-                    href={`https://wa.me/6281113000966?text=Halo, saya tertarik dengan produk ${p.name}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.cardLink}
-                  >
-                    Detail klik disini <i className="fas fa-arrow-right" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </>

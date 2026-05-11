@@ -19,11 +19,46 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "PT Printwork Multigraph Indonesia | Premium Packaging Solutions",
+  title: "PT Printwork Indonesia | Premium Custom Packaging Solutions",
   description:
-    "PT Printwork Multigraph Indonesia - Produsen kemasan eksklusif, food grade, dan solusi custom packaging premium untuk brand Anda. Kemasan berkualitas tinggi, Est. 2012.",
+    "PT Printwork Indonesia — Produsen kemasan eksklusif, food grade, dan solusi custom packaging premium untuk brand Anda. Bersertifikasi ISO 9001:2015 & FSSC 22000. Est. 2012.",
   keywords:
-    "Packaging box makanan custom, Printwork, PT Printwork Indonesia, Custom kemasan produk, Cetak packaging",
+    "Packaging box makanan custom, Printwork, PT Printwork Indonesia, Custom kemasan produk, Cetak packaging, food grade packaging, custom box, kemasan makanan",
+  openGraph: {
+    title: "PT Printwork Indonesia | Premium Custom Packaging",
+    description: "Solusi kemasan custom berkualitas tinggi untuk brand Anda. Bersertifikasi ISO 9001:2015 & FSSC 22000.",
+    type: "website",
+    locale: "id_ID",
+    siteName: "Printwork Indonesia",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "PT Printwork Indonesia",
+  url: "https://www.printwork.id",
+  logo: "https://www.printwork.id/printwork/new_logo.png",
+  description:
+    "PT Printwork Indonesia adalah perusahaan spesialis kemasan makanan custom yang telah melayani ribuan pelaku usaha F&B di seluruh Indonesia sejak 2012.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Grand Puri Laras, Jl. Pisangan Raya, Cireundeu, Ciputat Timur",
+    addressLocality: "Tangerang Selatan",
+    addressRegion: "Banten",
+    addressCountry: "ID",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+62-811-1300-0966",
+    contactType: "customer service",
+    availableLanguage: ["Indonesian", "English"],
+  },
+  sameAs: ["https://instagram.com/printwork.id"],
 };
 
 export default function RootLayout({
@@ -34,10 +69,6 @@ export default function RootLayout({
   return (
     <html lang="id" className={`${montserrat.variable} ${playfair.variable}`}>
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-Q0YJ0TH3B1"
           strategy="afterInteractive"
@@ -47,10 +78,13 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'G-Q0YJ0TH3B1');
           `}
         </Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body>
         <Navbar />

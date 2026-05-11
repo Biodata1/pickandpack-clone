@@ -6,99 +6,153 @@ import styles from './HeroSlider.module.css';
 
 const slides = [
   {
-    image: 'https://www.printwork.id/images/custom-hero-bg.webp',
-    headline: 'Premium Packaging Solutions',
-    headlineSub: 'Elevate Your Brand Identity',
+    image: '/printwork/custom-hero-bg.webp',
+    badge: 'Est. 2012 — PT Printwork Indonesia',
+    headline: 'Kemasan',
+    headlineAccent: 'Eksklusif',
+    headlineEnd: 'Premium.',
+    sub: 'Solusi kemasan custom berkualitas tinggi yang membangun identitas brand Anda di pasar modern.',
   },
   {
-    image: 'https://www.printwork.id/images/product-img1.webp',
-    headline: 'Custom Food Grade Packaging',
-    headlineSub: 'Safe, Sustainable, and Stylish',
+    image: '/printwork/dus_kentang.webp',
+    badge: 'Food Grade & Eco-Kraft',
+    headline: 'Custom Packaging',
+    headlineAccent: 'Untuk Bisnis',
+    headlineEnd: 'F&B Anda.',
+    sub: 'Kemasan makanan food grade bersertifikasi ISO 9001:2015 & FSSC 22000 untuk skala UMKM hingga korporasi.',
   },
   {
-    image: 'https://www.printwork.id/images/product-img2.webp',
-    headline: 'Exquisite Hard Box & Premium Cases',
-    headlineSub: 'First Impression That Lasts',
+    image: '/printwork/custom-hero-bg.webp',
+    badge: 'Premium Packaging Solutions',
+    headline: 'Deliver a Unique',
+    headlineAccent: 'Experience',
+    headlineEnd: 'Through Packaging.',
+    sub: 'Tingkatkan first impression brand Anda dengan kemasan custom yang berkesan dan berkualitas tinggi.',
   },
 ];
 
+const SLIDE_DURATION = 7000;
+
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % slides.length);
+    setProgress(0);
   }, []);
 
   const prev = useCallback(() => {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+    setProgress(0);
   }, []);
 
+  const goTo = useCallback((index: number) => {
+    setCurrent(index);
+    setProgress(0);
+  }, []);
+
+  // Auto-play with progress
   useEffect(() => {
-    const timer = setInterval(next, 6000);
-    return () => clearInterval(timer);
-  }, [next]);
+    const interval = setInterval(() => {
+      setProgress((p) => {
+        if (p >= 100) {
+          next();
+          return 0;
+        }
+        return p + (100 / (SLIDE_DURATION / 50));
+      });
+    }, 50);
+    return () => clearInterval(interval);
+  }, [next, current]);
 
   return (
     <section className={styles.hero}>
+      {/* Slides */}
       {slides.map((slide, i) => (
         <div key={i} className={`${styles.slide} ${i === current ? styles.active : ''}`}>
-          <Image
-            src={slide.image}
-            alt={slide.headline}
-            fill
-            priority={i === 0}
-            style={{ objectFit: 'cover' }}
-            sizes="100vw"
-          />
+          <div className={styles.imageWrap}>
+            <Image
+              src={slide.image}
+              alt={slide.headline}
+              fill
+              priority={i === 0}
+              style={{ objectFit: 'cover' }}
+              sizes="100vw"
+            />
+          </div>
           <div className={styles.overlay} />
         </div>
       ))}
 
       {/* Content */}
       <div className={styles.content}>
-        <div className={styles.slideIndicator}>
-          <span className={styles.currentNum}>{current + 1}</span>
-          <span className={styles.divider}>/</span>
-          <span className={styles.totalNum}>{slides.length}</span>
-        </div>
-
-        <div className={styles.textArea}>
+        <div className={styles.textArea} key={current}>
+          <span className={styles.badge}>{slides[current].badge}</span>
           <h1 className={styles.headline}>
-            {slides[current].headline}
+            {slides[current].headline}{' '}
             <br />
-            <span className={styles.headlineAccent}>{slides[current].headlineSub}</span>
+            <em className={styles.headlineAccent}>{slides[current].headlineAccent}</em>{' '}
+            <span className={styles.headlineEnd}>{slides[current].headlineEnd}</span>
           </h1>
-          <a
-            href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.ctaBtn}
-          >
-            KONSULTASIKAN SEKARANG
-          </a>
+          <p className={styles.sub}>{slides[current].sub}</p>
+          <div className={styles.heroCtas}>
+            <a
+              href="/produk"
+              className={styles.ctaBtn}
+            >
+              Lihat Katalog
+            </a>
+            <a
+              href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.ctaBtnOutline}
+            >
+              Konsultasi Gratis
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Progress Dots */}
+      <div className={styles.controls}>
+        <div className={styles.dots}>
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              className={`${styles.dot} ${i === current ? styles.dotActive : ''}`}
+              onClick={() => goTo(i)}
+              aria-label={`Slide ${i + 1}`}
+            >
+              {i === current && (
+                <span className={styles.dotProgress} style={{ width: `${progress}%` }} />
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Arrows */}
       <div className={styles.arrows}>
         <button onClick={prev} aria-label="Previous slide" className={styles.arrow}>
-          <i className="fas fa-chevron-left" />
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
         </button>
         <button onClick={next} aria-label="Next slide" className={styles.arrow}>
-          <i className="fas fa-chevron-right" />
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
         </button>
       </div>
 
-      {/* Dots */}
-      <div className={styles.dots}>
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            className={`${styles.dot} ${i === current ? styles.dotActive : ''}`}
-            onClick={() => setCurrent(i)}
-            aria-label={`Slide ${i + 1}`}
-          />
-        ))}
+      {/* Scroll Indicator */}
+      <div className={styles.scrollIndicator}>
+        <span>Scroll Down</span>
+        <div className={styles.scrollLine}>
+          <div className={styles.scrollDot} />
+        </div>
       </div>
     </section>
   );

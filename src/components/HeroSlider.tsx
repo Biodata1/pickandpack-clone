@@ -6,19 +6,19 @@ import styles from './HeroSlider.module.css';
 
 const slides = [
   {
-    image: '/images/hero-1.png',
-    headline: 'Bring Your Creative Ideas to Life',
-    headlineSub: 'with Custom Packaging',
+    image: 'https://www.printwork.id/images/custom-hero-bg.webp',
+    headline: 'Premium Packaging Solutions',
+    headlineSub: 'Elevate Your Brand Identity',
   },
   {
-    image: '/images/hero-2.png',
-    headline: 'Custom Packaging to Enhance',
-    headlineSub: 'Your Business',
+    image: 'https://www.printwork.id/images/product-img1.webp',
+    headline: 'Custom Food Grade Packaging',
+    headlineSub: 'Safe, Sustainable, and Stylish',
   },
   {
-    image: '/images/hero-3.png',
-    headline: 'Deliver a Unique Experience through',
-    headlineSub: 'Custom Packaging',
+    image: 'https://www.printwork.id/images/product-img2.webp',
+    headline: 'Exquisite Hard Box & Premium Cases',
+    headlineSub: 'First Impression That Lasts',
   },
 ];
 
@@ -69,7 +69,7 @@ export default function HeroSlider() {
             <span className={styles.headlineAccent}>{slides[current].headlineSub}</span>
           </h1>
           <a
-            href="https://wa.me/6285169577447?text=Halo,%20Saya%20tertarik%20untuk%20custom%20packaging.%20bisa%20tolong%20dibantu%20?"
+            href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
             target="_blank"
             rel="noopener noreferrer"
             className={styles.ctaBtn}

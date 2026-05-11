@@ -11,12 +11,12 @@ export default function Footer() {
             <div className={styles.logo}>
               <i className="fas fa-box-open" />
               <div>
-                <span className={styles.logoTitle}>PICK AND PACK</span>
-                <span className={styles.logoSub}>PACKAGING COMPANY</span>
+                <span className={styles.logoTitle}>PRINTWORK</span>
+                <span className={styles.logoSub}>INDONESIA</span>
               </div>
             </div>
             <p>
-              Pick and Pack adalah perusahaan packaging terkemuka yang menyediakan solusi kemasan custom berkualitas tinggi untuk berbagai jenis bisnis di Indonesia.
+              PT Printwork Indonesia adalah perusahaan spesialis kemasan makanan custom yang telah melayani ribuan pelaku usaha F&B di seluruh Indonesia.
             </p>
           </div>
 
@@ -38,23 +38,23 @@ export default function Footer() {
             <ul className={styles.contactList}>
               <li>
                 <i className="fab fa-whatsapp" />
-                <a href="https://wa.me/6285169577447" target="_blank" rel="noopener noreferrer">
-                  0851-6957-7447
+                <a href="https://wa.me/6281113000966" target="_blank" rel="noopener noreferrer">
+                  0811-1300-0966
                 </a>
               </li>
               <li>
                 <i className="fab fa-instagram" />
-                <a href="https://instagram.com/pickandpack.id" target="_blank" rel="noopener noreferrer">
-                  @pickandpack.id
+                <a href="https://instagram.com/printwork.id" target="_blank" rel="noopener noreferrer">
+                  @printwork.id
                 </a>
               </li>
               <li>
                 <i className="fas fa-envelope" />
-                <a href="mailto:indocartonbox@gmail.com">indocartonbox@gmail.com</a>
+                <a href="mailto:info@printwork.id">info@printwork.id</a>
               </li>
               <li>
                 <i className="fas fa-map-marker-alt" />
-                <span>Jakarta Selatan, Indonesia</span>
+                <span>Jakarta, Indonesia</span>
               </li>
             </ul>
           </div>
@@ -66,10 +66,10 @@ export default function Footer() {
               <i className="fas fa-download" /> Download Katalog
             </a>
             <div className={styles.socialIcons}>
-              <a href="https://wa.me/6285169577447" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <a href="https://wa.me/6281113000966" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                 <i className="fab fa-whatsapp" />
               </a>
-              <a href="https://instagram.com/pickandpack.id" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a href="https://instagram.com/printwork.id" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <i className="fab fa-instagram" />
               </a>
             </div>
@@ -79,7 +79,7 @@ export default function Footer() {
 
       <div className={styles.bottom}>
         <div className="container">
-          <p>&copy; {new Date().getFullYear()} PT. JAYAPACK SOLUSI INTERNUSA. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} PT Printwork Indonesia. All rights reserved.</p>
         </div>
       </div>
     </footer>

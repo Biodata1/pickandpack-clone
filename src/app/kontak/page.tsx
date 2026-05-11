@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Hubungi Kami — Pick & Pack Custom Packaging',
-  description: 'Hubungi Pick & Pack untuk konsultasi kebutuhan custom packaging Anda. Kami siap membantu!',
+  title: 'Hubungi Kami — Printwork Indonesia',
+  description: 'Hubungi Printwork Indonesia untuk konsultasi kebutuhan custom packaging Anda. Kami siap membantu!',
 };
 
 export default function KontakPage() {
@@ -31,7 +31,7 @@ export default function KontakPage() {
                   </div>
                   <div>
                     <h3>Our Address</h3>
-                    <p>Jl. Raya Packaging No. 123, Jakarta Selatan, Indonesia 12345</p>
+                    <p>Grand Puri Laras, Jl. Pisangan Raya, Cireundeu, Ciputat Timur, Tangerang Selatan</p>
                   </div>
                 </div>
                 
@@ -41,7 +41,7 @@ export default function KontakPage() {
                   </div>
                   <div>
                     <h3>Our Number</h3>
-                    <a href="tel:+6285169577447">0851-6957-7447</a>
+                    <a href="tel:+6281113000966">0811-1300-0966</a>
                   </div>
                 </div>
                 
@@ -51,7 +51,7 @@ export default function KontakPage() {
                   </div>
                   <div>
                     <h3>Our Email</h3>
-                    <a href="mailto:indocartonbox@gmail.com">indocartonbox@gmail.com</a>
+                    <a href="mailto:info@printwork.id">info@printwork.id</a>
                   </div>
                 </div>
               </div>
@@ -65,7 +65,7 @@ export default function KontakPage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Lokasi Pick & Pack"
+                  title="Lokasi Printwork Indonesia"
                 />
               </div>
             </div>

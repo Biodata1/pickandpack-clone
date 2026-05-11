@@ -19,11 +19,11 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Packaging Box Kemasan Custom",
+  title: "PT Printwork Multigraph Indonesia | Premium Packaging Solutions",
   description:
-    "Dapatkan packaging box makanan custom dan kemasan produk unik untuk merek Anda. Cetak kardus custom dengan desain yang menarik dan berkualitas tinggi",
+    "PT Printwork Multigraph Indonesia - Produsen kemasan eksklusif, food grade, dan solusi custom packaging premium untuk brand Anda. Kemasan berkualitas tinggi, Est. 2012.",
   keywords:
-    "Packaging box makanan custom, Custom kemasan produk, Cetak packaging, Cetak kardus custom, Paper bag custom",
+    "Packaging box makanan custom, Printwork, PT Printwork Indonesia, Custom kemasan produk, Cetak packaging",
 };
 
 export default function RootLayout({

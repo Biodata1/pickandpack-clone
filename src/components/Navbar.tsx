@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Navbar.module.css';
 
 const navLinks = [
@@ -43,13 +44,13 @@ export default function Navbar() {
       <nav className={styles.nav}>
         {/* Logo */}
         <Link href="/" className={styles.logo}>
-          <div className={styles.logoIcon}>
-            <i className="fas fa-box-open" />
-          </div>
-          <div className={styles.logoText}>
-            <span className={styles.logoTitle}>PICK AND PACK</span>
-            <span className={styles.logoSub}>PACKAGING COMPANY</span>
-          </div>
+          <Image
+            src="https://www.printwork.id/images/new_logo.png"
+            alt="Printwork Indonesia"
+            width={180}
+            height={50}
+            className={styles.logoImage}
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -80,7 +81,7 @@ export default function Navbar() {
 
         {/* CTA */}
         <a
-          href="https://wa.me/6285169577447?text=Halo,%20Saya%20tertarik%20untuk%20custom%20packaging.%20bisa%20tolong%20dibantu%20?"
+          href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
           target="_blank"
           rel="noopener noreferrer"
           className={`${styles.ctaBtn}`}
@@ -108,8 +109,8 @@ export default function Navbar() {
           <button onClick={() => setMobileOpen(false)}><i className="fas fa-times" /></button>
         </div>
         <div className={styles.drawerContact}>
-          <div><strong>Our Number</strong><p>0851-6957-7447</p></div>
-          <div><strong>Our Email</strong><p>indocartonbox@gmail.com</p></div>
+          <div><strong>Our Number</strong><p>0811-1300-0966</p></div>
+          <div><strong>Our Email</strong><p>info@printwork.id</p></div>
         </div>
         <ul className={styles.mobileLinks}>
           {navLinks.map((link) => (

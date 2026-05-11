@@ -1,0 +1,365 @@
+fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0D1B3E]
+relative mb-12
+flex flex-col items-center gap-4
+h-16 w-auto object-contain invert
+Printwork Wordmark
+h-8 w-auto object-contain brightness-0 invert
+rgba(255,255,255,0.2)
+text-[10px] tracking-[0.3em] uppercase text-white/40 font-light
+Loading Experience
+start start
+relative min-h-screen flex items-center overflow-hidden bg-white
+absolute inset-0
+Custom Packaging Printwork
+w-full h-full object-cover
+absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent
+absolute inset-0 pointer-events-none overflow-hidden
+absolute rounded-full bg-navy-900/[0.03] border border-navy-900/[0.05]
+relative max-w-[1100px] mx-auto px-10 md:px-16 lg:px-24 w-full pt-32 pb-24
+flex items-center gap-3 text-[10px] font-jost text-navy-300 tracking-[0.4em] uppercase mb-10
+w-8 h-px bg-navy-200
+Est. 2012 — PT Printwork Indonesia
+font-display font-medium leading-[0.9] mb-10
+clamp(2.5rem, 8vw, 6.5rem)
+block text-navy-900 tracking-tighter
+block text-navy-900 tracking-tighter flex flex-wrap items-baseline gap-[0.2em]
+font-display
+font-light text-navy-400 not-italic tracking-normal
+block text-base md:text-xl font-jost font-light text-navy-500 mb-12 max-w-xl leading-relaxed
+Solusi kemasan 
+text-navy-900 font-medium
+flex flex-wrap gap-8 items-center
+group relative inline-flex items-center gap-4 px-10 py-5 bg-navy-900 text-white rounded-full overflow-hidden transition-all duration-300 hover:bg-black shadow-2xl shadow-navy-900/20
+relative z-10 font-jost font-semibold text-sm tracking-widest uppercase
+Lihat Katalog
+relative z-10 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center transition-transform duration-500 group-hover:rotate-45
+currentColor
+M7 17L17 7M17 7H7M17 7V17
+absolute inset-0 bg-gradient-to-r from-navy-800 to-navy-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300
+group inline-flex items-center gap-3 px-10 py-5 border border-navy-100 text-navy-900 text-sm font-jost font-semibold tracking-widest uppercase rounded-full hover:border-navy-900 hover:bg-navy-50 transition-all duration-300
+Konsultasi Gratis
+absolute bottom-12 left-10 hidden lg:flex items-center gap-5
+flex flex-col gap-2
+w-1.5 h-1.5 rounded-full bg-navy-900
+w-px h-20 bg-navy-100 mx-auto
+text-[10px] font-jost text-navy-300 tracking-[0.3em] uppercase vertical-text
+Scroll Down
+relative group
+flex gap-5 overflow-x-auto hide-scrollbar scroll-smooth pb-2
+absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-navy-50
+w-4 h-4 text-navy-900
+absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-navy-50
+py-24 bg-white
+max-w-[1100px] mx-auto px-10 md:px-16 lg:px-24
+flex items-end justify-between mb-12
+text-[10px] font-jost text-navy-400 tracking-[0.3em] uppercase block mb-3
+text-3xl md:text-4xl lg:text-5xl font-display font-medium text-navy-900
+font-light text-navy-400 not-italic
+hidden md:inline-flex items-center gap-2 px-6 py-3 bg-navy-900 text-white text-sm font-jost font-semibold rounded-full hover:bg-navy-700 transition-colors
+Lihat Semua
+flex-shrink-0 w-[240px] sm:w-[260px]
+py-24 lg:py-36 bg-white overflow-hidden
+text-center mb-28
+flex flex-col items-center gap-1 mb-8
+text-4xl md:text-5xl lg:text-6xl font-display font-medium text-navy-900 leading-[1.1]
+Berkomitmen pada Kualitas,
+Selalu Berinovasi
+text-base font-jost text-navy-400 max-w-lg mx-auto leading-relaxed
+Kemasan luar biasa adalah janji kami. Kami menggabungkan presisi teknis dengan kreativitas visual untuk membangun brand Anda. Sertifikasi ISO 9001:2015 & FSSC 22000.
+grid md:grid-cols-2 gap-8 max-w-6xl mx-auto
+relative h-[450px] lg:h-[500px] rounded-[2.5rem] overflow-hidden group shadow-2xl shadow-navy-900/10
+Printing Mission
+absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110
+absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent
+absolute inset-0 p-10 lg:p-14 flex flex-col justify-end
+text-[11px] font-jost text-white/50 tracking-[0.4em] uppercase mb-4 block
+font-display text-3xl lg:text-4xl text-white font-medium leading-tight mb-6
+Memberdayakan 
+italic font-light opacity-80
+Bisnis Lokal
+font-jost text-sm text-white/70 leading-relaxed max-w-sm
+Menyediakan kemasan makanan custom berkualitas tinggi dengan harga terjangkau bagi UMKM hingga korporasi besar.
+Packaging Vision
+Menjadi Standar 
+Dikenal karena kualitas cetak premium, pelayanan cepat, dan komitmen pada solusi kemasan berkelanjutan.
+flex justify-center mt-20
+group relative inline-flex items-center gap-4 px-10 py-5 bg-navy-900 text-white rounded-full overflow-hidden transition-all duration-300 hover:bg-black shadow-xl shadow-navy-900/20
+Pelajari Filosofi Kami
+relative z-10 transition-transform duration-300 group-hover:translate-x-2
+M5 12h14M12 5l7 7-7 7
+Brand yang berkembang berinvestasi pada
+kemasan custom berkualitas.
+Kami bantu wujudkan visi Anda.
+py-24 px-10 md:px-16 lg:px-24 bg-white
+max-w-[1100px] mx-auto
+relative overflow-hidden min-h-[450px] flex items-center shadow-2xl shadow-navy-900/10
+inset(100% 0 0 0 round 60px)
+inset(0% 0 0 0 round 60px)
+Custom Solutions
+absolute inset-0 w-full h-full object-cover grayscale opacity-20
+absolute inset-0 bg-navy-900/80 backdrop-blur-[2px] group-hover:backdrop-blur-none transition-all duration-700
+absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-white/[0.08] blur-3xl
+relative z-10 px-10 py-16 md:px-24 md:py-24 w-full
+text-[11px] font-jost text-white/40 tracking-[0.4em] uppercase mb-10 flex items-center gap-4
+w-12 h-px bg-white/20
+Custom Packaging Solutions
+mb-12 max-w-4xl
+text-xl md:text-2xl font-light text-white/60 mt-6
+text-4xl md:text-5xl lg:text-7xl tracking-tight
+italic font-light text-white/70
+inline-flex items-center gap-4 px-10 py-5 bg-white text-navy-900 text-sm font-jost font-bold tracking-widest uppercase rounded-full hover:bg-navy-900 hover:text-white transition-all duration-300 shadow-xl shadow-black/10 group overflow-hidden relative
+relative z-10
+Konsultasi Sekarang
+relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1
+radix.slottable
+isReactWarning
+CollectionProvider
+CollectionSlot
+CollectionItemSlot
+data-radix-collection-item
+CollectionConsumer
+Collapsible
+data-disabled
+CollapsibleTrigger
+aria-controls
+aria-expanded
+CollapsibleContent
+data-orientation
+AccordionItem
+AccordionHeader
+AccordionTrigger
+aria-disabled
+AccordionContent
+aria-labelledby
+var(--radix-collapsible-content-height)
+var(--radix-collapsible-content-width)
+flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline text-left [&[data-state=open]>svg]:rotate-180
+h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200
+overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down
+Jenis kemasan apa saja yang tersedia?
+Kami menyediakan beragam kemasan makanan custom: lunch box, food pail, dus fried chicken, dus nasi, dus martabak, kantong kertas, food wrapping paper, standing pouch, sachet, gusset, dan gift wrap.
+Berapa minimum order?
+Minimum order mulai dari 500 pcs untuk sebagian besar produk. Untuk kertas nasi, food wrapping, dan kantong ayam, minimum order 1.000 pcs. Standing pouch dan gusset bisa mulai dari 100 pcs.
+Apakah bisa custom branding?
+Tentu! Kami menerima cetak custom 1 warna, 2 warna, hingga full color. Termasuk opsi laminasi dalam untuk ketahanan terhadap minyak dan air.
+Material apa yang digunakan?
+Kami menggunakan material Eco-Kraft, Food Grade (Foopak), Duplex, Ivory, Paper Metalized, Art Paper, dan Grease Paper. Semua material aman untuk makanan dan bersertifikat.
+Bagaimana proses pemesanan?
+Pilih produk, tentukan ukuran, material, jenis cetak, dan laminasi. Hubungi kami via WhatsApp untuk konsultasi desain gratis. Proses produksi 7-14 hari kerja setelah desain disetujui.
+Apakah melayani pengiriman ke seluruh Indonesia?
+Ya, kami melayani pengiriman ke seluruh Indonesia. Jabodetabek 1-3 hari kerja, luar Jawa 3-7 hari kerja.
+py-24 bg-secondary
+max-w-3xl mx-auto
+text-center mb-14
+Pertanyaan 
+bg-white rounded-2xl px-6 border-none shadow-sm overflow-hidden
+text-left text-sm font-jost font-semibold text-navy-900 py-5 hover:no-underline
+text-sm font-jost text-navy-400 leading-relaxed pb-5
+relative py-16 bg-white overflow-hidden border-y border-navy-50
+flex w-max overflow-hidden
+flex items-center gap-32 pr-32
+h-8 md:h-10
+h-32 md:h-40 mx-20
+h-20 md:h-28 mx-16
+Sponsor Logo
+h-full w-auto object-contain
+Printwork Indonesia
+Custom Packaging
+ISO 9001:2015
+Min. 500 Pcs
+Cetak Premium
+opacity-100
+ArrowUpRight
+m6 9 6 6 6-6
+ChevronDown
+M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2
+Lunch Box & Pail
+Fried Chicken
+Dus Nasi & Martabak
+Kantong Kertas
+Kemasan Lainnya
+Desain & Inovasi
+Manufaktur Presisi
+Packaging & Hard Box
+Solusi Kustom
+Butuh sesuatu yang spesifik? Kami bisa menyesuaikan kebutuhan Anda.
+Tentang Kami
+Klien & Portofolio
+Kebijakan Privasi
+Syarat & Ketentuan
+printwork_cart
+cartUpdated
+bg-white/96 backdrop-blur-xl border-b border-[#000000]/[0.03] shadow-[0_1px_0_0_rgba(0,0,0,0.06)]
+bg-transparent
+max-w-[1100px] mx-auto px-6 sm:px-8 lg:px-10
+flex items-center justify-between h-[70px]
+flex items-center group
+Printwork Logo
+h-10 md:h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105
+hidden lg:flex items-center gap-12
+relative group h-[70px] flex items-center
+text-[#0D1B3E]
+text-[#737373] hover:text-[#000000]
+absolute bottom-0 left-0 h-0.5 bg-[#0D1B3E] transition-all duration-300 group-hover:w-full
+flex items-center gap-3
+openCommandPalette
+hidden sm:flex w-9 h-9 items-center justify-center rounded-full hover:bg-[#f5f5f5] transition-colors
+Search Command Palette
+w-[17px] h-[17px] text-[#525252] hover:text-[#0D1B3E]
+relative w-9 h-9 flex items-center justify-center rounded-full hover:bg-[#f5f5f5] transition-colors group
+w-[17px] h-[17px] text-[#525252] group-hover:text-[#0D1B3E]
+absolute -top-1 -right-1 w-4 h-4 bg-[#0D1B3E] text-white text-[9px] font-bold rounded-full flex items-center justify-center
+hidden md:flex w-9 h-9 items-center justify-center rounded-full hover:bg-[#f5f5f5] transition-colors group
+lg:hidden w-9 h-9 flex items-center justify-center text-[#525252] hover:text-[#0D1B3E] transition-colors
+absolute top-full left-0 right-0 bg-white border-t border-[#e5e5e5] shadow-xl overflow-hidden
+max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-8
+grid grid-cols-12 gap-8
+flex items-center gap-3 group
+text-[#525252] group-hover:text-[#0D1B3E] font-medium transition-colors
+w-4 h-4 opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all text-[#0D1B3E]
+mt-8 pt-6 border-t border-[#e5e5e5]
+text-xl text-[#1a1a1a] hover:text-[#0D1B3E] transition-colors flex items-center gap-2 group font-semibold
+Lihat Semua Produk
+w-5 h-5 transform group-hover:translate-x-1 transition-transform
+bg-[#f5f5f5] rounded-2xl p-6 h-full flex flex-col justify-between group
+text-xl text-[#1a1a1a] mb-2 font-semibold
+Butuh yang lebih spesifik?
+text-[#737373] text-sm mb-4
+Kami bisa menyesuaikan packaging & cetakan sesuai kebutuhan Anda
+rounded-xl overflow-hidden mb-4
+https://images.unsplash.com/photo-1586769852044-692d6e3703f0?q=80&w=600&auto=format&fit=crop
+w-full h-32 object-cover transition-transform duration-500 group-hover:scale-105
+text-[#0D1B3E] font-semibold flex items-center gap-2 group-hover:opacity-80
+w-4 h-4 transform group-hover:translate-x-1 transition-transform
+col-span-4 space-y-4
+rounded-2xl p-6 text-white
+text-lg font-semibold mb-2
+h-px bg-white/20 my-4
+flex items-center gap-2 group text-white hover:opacity-80
+bg-[#f5f5f5] rounded-2xl p-6 hover:bg-[#eaeaea] transition-colors
+text-lg mb-2 text-[#1a1a1a] font-semibold
+Mesin Heidelberg Terintegrasi
+text-sm text-[#737373] mb-4
+flex items-center gap-2 group text-[#0D1B3E] font-semibold
+Pelajari lebih lanjut
+grid grid-cols-4 gap-6
+group relative rounded-2xl overflow-hidden aspect-[3/4]
+absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110
+absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent
+absolute bottom-0 left-0 right-0 p-6
+text-white text-xl font-semibold mb-2
+h-px bg-white/30 mb-3
+text-white/80 text-sm flex items-center gap-2 font-medium group-hover:text-white
+grid grid-cols-2 gap-8 max-w-3xl
+text-sm font-semibold text-[#a3a3a3] uppercase tracking-wider mb-4
+text-xl text-[#1a1a1a] hover:text-[#0D1B3E] font-medium transition-colors flex items-center gap-2 group
+w-5 h-5 opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all
+Sumber Daya
+fixed inset-0 z-[99999] flex flex-col lg:hidden bg-white
+flex items-center justify-between px-6 h-[80px] border-b border-[#f5f5f5]
+flex items-center
+h-8 w-auto object-contain
+w-10 h-10 flex items-center justify-center rounded-full bg-secondary
+w-5 h-5 text-navy-900
+flex-1 overflow-auto py-10 px-8 flex flex-col justify-between
+Katalog Produk
+Layanan Kami
+Hubungi Kami
+text-3xl font-display font-medium text-navy-900 flex items-center justify-between group
+w-6 h-6 text-navy-200 group-hover:text-navy-900 transition-colors
+pt-10 border-t border-[#f5f5f5] space-y-6
+flex-1 py-4 bg-navy-900 text-white rounded-full text-xs font-bold uppercase tracking-widest text-center
+Admin Portal
+w-14 h-14 border border-navy-100 rounded-full flex items-center justify-center
+text-center text-[10px] text-navy-300 tracking-widest uppercase
+Printwork Indonesia © 2026
+inline-block
+Semua Produk
+Cetak Custom
+bg-navy-900 text-white
+max-w-[1100px] mx-auto px-10 md:px-16 lg:px-24 pt-20 pb-16 border-b border-white/10
+flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8
+text-[10px] font-jost text-white/30 tracking-[0.3em] uppercase mb-4
+Mari bekerja
+text-3xl md:text-5xl font-display font-medium
+https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom.
+noopener noreferrer
+inline-flex items-center gap-2 px-8 py-4 bg-white text-navy-900 text-sm font-jost font-semibold tracking-wide rounded-full hover:bg-white/90 transition-colors group
+Hubungi via WhatsApp
+w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform
+max-w-[1100px] mx-auto px-10 md:px-16 lg:px-24 py-16
+grid grid-cols-2 md:grid-cols-4 gap-10
+col-span-2 md:col-span-1
+flex items-center mb-5
+text-white/30 text-xs font-jost leading-relaxed max-w-[220px]
+Solusi kemasan makanan custom berkualitas untuk bisnis F&B di seluruh Indonesia. Bersertifikat ISO 9001:2015.
+text-white/30 text-[10px] font-jost uppercase tracking-[0.25em] mb-5
+text-xs font-jost text-white/50 hover:text-white transition-colors duration-200
+max-w-[1100px] mx-auto px-10 md:px-16 lg:px-24 py-5 border-t border-white/10
+flex flex-col sm:flex-row items-center justify-between gap-3
+text-white/20 text-[11px] font-jost
+flex items-center gap-6
+text-white/20 text-[11px] font-jost cursor-pointer hover:text-white/50 transition-colors
+Awal mula perjalanan
+PT Printwork Indonesia didirikan dengan visi menjadi penyedia kemasan makanan custom terdepan di Indonesia.
+Ekspansi kapasitas produksi
+Menambah lini produksi cetak dan finishing untuk memenuhi permintaan pasar yang terus berkembang.
+Sertifikasi kualitas
+Meraih sertifikasi ISO 9001:2015 dan FSSC 22000 untuk menjamin standar kualitas dan keamanan pangan.
+Inovasi material
+Menghadirkan material Food Grade (Foopak) dan Paper Metalized untuk jawab kebutuhan kemasan modern.
+Mitra terpercaya
+Melayani ribuan pelaku usaha F&B dari skala UMKM hingga brand nasional di seluruh Indonesia.
+Kualitas Terjamin
+Efisiensi Produksi
+Fokus Pelanggan
+Keamanan Pangan
+Ramah Lingkungan
+Sertifikasi
+Direktur Utama
+Pengelolaan strategis perusahaan
+Manajer Produksi
+Operasional & kontrol kualitas
+Manajer Pemasaran
+Pengembangan pasar & klien
+Desain kemasan custom
+relative h-[60vh] md:h-[70vh] overflow-hidden
+Tentang PT Printwork Indonesia
+absolute inset-0 bg-gradient-to-t from-navy-900/60 via-navy-900/20 to-transparent
+absolute bottom-0 left-0 right-0 p-8 md:p-16
+text-4xl md:text-6xl lg:text-7xl font-display font-medium text-white
+Terpercaya &
+Berkualitas
+py-20 lg:py-28
+text-lg md:text-xl text-navy-600 leading-relaxed
+PT Printwork Indonesia adalah perusahaan spesialis kemasan makanan custom yang telah melayani ribuan pelaku usaha F&B di seluruh Indonesia. Kami menggabungkan teknologi cetak modern dengan material berkualitas tinggi untuk menghasilkan kemasan yang tidak hanya melindungi produk, tetapi juga memperkuat identitas brand Anda.
+py-20 bg-secondary
+text-3xl md:text-4xl lg:text-5xl font-display font-medium text-navy-900 mb-16
+Perjalanan 
+italic text-navy-500
+absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-navy-200
+md:flex-row
+md:flex-row-reverse
+md:text-right
+text-4xl font-display font-bold text-navy-200
+text-lg font-semibold text-navy-900 mt-2
+text-sm text-navy-500 mt-2 leading-relaxed
+absolute left-4 md:left-1/2 top-2 w-3 h-3 bg-navy-900 rounded-full -translate-x-1/2 ring-4 ring-secondary
+text-center mb-16
+Berkomitmen pada 
+grid md:grid-cols-2 gap-8 max-w-4xl mx-auto
+p-10 bg-secondary rounded-3xl
+text-navy-400 text-xs tracking-[0.3em] uppercase mb-4
+text-navy-700 leading-relaxed
+Menyediakan kemasan makanan custom berkualitas tinggi dengan harga terjangkau, mendukung pelaku usaha F&B dari skala UMKM hingga korporasi besar di seluruh Indonesia.
+p-10 bg-navy-900 rounded-3xl
+text-white/40 text-xs tracking-[0.3em] uppercase mb-4
+text-white/80 leading-relaxed
+Menjadi penyedia kemasan makanan terpercaya dan terdepan di Indonesia, dikenal karena kualitas cetak premium, pelayanan cepat, dan komitmen pada inovasi berkelanjutan.
+text-3xl md:text-4xl lg:text-5xl font-display font-medium text-navy-900 mb-12 text-center
+grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto
+text-center
+w-20 h-20 mx-auto mb-4 bg-navy-200 rounded-full flex items-center justify-center
+text-xl font-display text-navy-600
+text-sm font-semibold text-navy-900
+text-xs text-navy-500 mt-1

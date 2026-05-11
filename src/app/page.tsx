@@ -1,29 +1,30 @@
 import HeroSlider from '@/components/HeroSlider';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './page.module.css';
 
 const stats = [
-  { value: '350+', label: 'Brands Trusted Us' },
-  { value: '10+', label: 'Years Experience' },
+  { value: '1000+', label: 'Brands Trusted Us' },
+  { value: '14+', label: 'Years Experience' },
   { value: '1M+', label: 'Boxes Produced' },
 ];
 
 const whyUs = [
-  { icon: 'fas fa-paint-brush', title: 'Custom Design', desc: 'Pola khusus untuk Anda. Tim kami akan menciptakan pola packaging khusus yang sesuai untuk bisnis Anda.' },
-  { icon: 'fas fa-award', title: 'Best Quality', desc: 'Material berkualitas tinggi. Kami menggunakan bahan baku terbaik untuk menghasilkan kemasan premium.' },
-  { icon: 'fas fa-bolt', title: 'Fast Production', desc: 'Produksi tepat waktu. Proses produksi efisien dengan standar Quality Control yang ketat.' },
-  { icon: 'fas fa-leaf', title: 'Eco Friendly', desc: 'Ramah lingkungan. Bahan baku kami bersertifikasi FSC dan mendukung pengelolaan hutan berkelanjutan.' },
+  { icon: 'fas fa-paint-brush', title: 'Desain & Inovasi', desc: 'Tim kami akan menciptakan pola packaging khusus yang sesuai untuk bisnis Anda.' },
+  { icon: 'fas fa-award', title: 'Kualitas Terjamin', desc: 'Material berkualitas tinggi. Kami menggunakan bahan baku terbaik bersertifikasi ISO & FSSC 22000.' },
+  { icon: 'fas fa-bolt', title: 'Manufaktur Presisi', desc: 'Mesin Heidelberg Terintegrasi. Proses produksi efisien dengan standar Quality Control ketat.' },
+  { icon: 'fas fa-leaf', title: 'Keamanan Pangan', desc: 'Material Food Grade (Foopak) dan Eco-Kraft yang ramah lingkungan.' },
 ];
 
 const products = [
-  { name: 'Food Pail', tag: 'Food Grade', cat: 'fnb' },
-  { name: 'Lunch Box', tag: 'Food Grade', cat: 'fnb' },
-  { name: 'Kotak Burger', tag: 'Food Grade', cat: 'fnb' },
-  { name: 'Kantong Makanan', tag: 'Food Grade', cat: 'fnb' },
-  { name: 'Paper Bowl', tag: 'Food Grade', cat: 'fnb' },
-  { name: 'Wrapper', tag: 'Food Grade', cat: 'fnb' },
-  { name: 'Sleeve', tag: 'Food Grade', cat: 'fnb' },
-  { name: 'Kotak Pizza', tag: 'Food Grade', cat: 'fnb' },
+  { name: 'Lunch Box & Pail', tag: 'Food Grade', cat: 'fnb', image: 'https://www.printwork.id/images/product-img1.webp' },
+  { name: 'Dus Nasi & Martabak', tag: 'Custom', cat: 'fnb', image: 'https://www.printwork.id/images/product-img2.webp' },
+  { name: 'Dus Fried Chicken', tag: 'Food Grade', cat: 'fnb', image: 'https://www.printwork.id/images/product-img3.webp' },
+  { name: 'Kantong Kertas', tag: 'Eco Friendly', cat: 'fnb', image: 'https://www.printwork.id/images/product-img4.webp' },
+  { name: 'Packaging & Hard Box', tag: 'Premium', cat: 'premium', image: 'https://www.printwork.id/images/product-img5.webp' },
+  { name: 'Sachet & Standing Pouch', tag: 'Custom', cat: 'premium', image: 'https://www.printwork.id/images/product-img6.webp' },
+  { name: 'Food Wrapping Paper', tag: 'Food Grade', cat: 'fnb', image: 'https://www.printwork.id/images/product-img7.webp' },
+  { name: 'Kemasan Lainnya', tag: 'Custom', cat: 'premium', image: 'https://www.printwork.id/images/product-img8.webp' },
 ];
 
 const orderSteps = [
@@ -40,17 +41,20 @@ const benefits = [
 ];
 
 const clients = [
-  'Coach', 'SOCIOLLA', 'BCA Solitaire', 'Kopi Kenangan', 'Janji Jiwa',
-  'Fred Perry', 'Bakerman', 'Dear Butter', 'Facetology', 'Eatlah',
-  'HOWEL N CO', 'Naked Papa', 'Ramen Yuk', 'Scarletts', 'Sec Bowl',
-  'Social Affair', 'RUCAS', 'BAUTY HAUL', 'TEMU', 'EVOLENE',
-  'GRILL BOX', 'SAYAP SUCI', 'LILLA BABY', 'YUMMY CHOICE',
+  { name: 'BNI', logo: 'https://www.printwork.id/images/sponsor1.png' },
+  { name: 'DJI', logo: 'https://www.printwork.id/images/sponsor2.png' },
+  { name: 'Kopi Kenangan', logo: 'https://www.printwork.id/images/sponsor3.png' },
+  { name: 'Janji Jiwa', logo: 'https://www.printwork.id/images/sponsor4.png' },
+  { name: 'Bakerman', logo: 'https://www.printwork.id/images/sponsor5.png' },
+  { name: 'SOCIOLA', logo: 'https://www.printwork.id/images/sponsor6.png' },
+  { name: 'BCA', logo: 'https://www.printwork.id/images/sponsor7.png' },
+  { name: 'Coach', logo: 'https://www.printwork.id/images/sponsor8.png' },
 ];
 
 const blogPosts = [
-  { title: '5 Tips Memilih Packaging yang Tepat untuk Bisnis FnB', cat: 'ARTIKEL', date: '15 April 2026' },
-  { title: 'Tren Packaging 2026: Sustainability & Premium Feel', cat: 'ARTIKEL', date: '10 April 2026' },
-  { title: 'Mengapa Custom Packaging Penting untuk Brand?', cat: 'ARTIKEL', date: '5 April 2026' },
+  { title: 'Tren Packaging 2026: Solusi Berkelanjutan untuk Masa Depan', cat: 'ARTIKEL', date: '15 April 2026', image: 'https://www.printwork.id/images/blog1.webp' },
+  { title: 'Cara Membangun Brand Identity Melalui Kemasan Produk', cat: 'ARTIKEL', date: '10 April 2026', image: 'https://www.printwork.id/images/blog2.webp' },
+  { title: 'Pentingnya Menggunakan Bahan Food Grade untuk Packaging', cat: 'ARTIKEL', date: '5 April 2026', image: 'https://www.printwork.id/images/blog3.webp' },
 ];
 
 export default function HomePage() {
@@ -58,23 +62,23 @@ export default function HomePage() {
     <>
       <HeroSlider />
 
-      {/* === Anti-Fraud Notice === */}
+      {/* === Company Summary === */}
       <section className={styles.fraudNotice}>
         <div className="container">
           <div className={styles.fraudContent}>
             <div className={styles.fraudIcon}>
-              <i className="fas fa-exclamation-triangle" />
+              <i className="fas fa-building" />
             </div>
             <div>
-              <h3>WASPADALAH TERHADAP UPAYA PENIPUAN!</h3>
-              <p>Pickandpack adalah perusahaan CUSTOM PAPER PACKAGING yang hanya memiliki nomor team sales RESMI sebagai berikut:</p>
+              <h3>PT PRINTWORK INDONESIA</h3>
+              <p>Perusahaan spesialis kemasan makanan custom yang telah melayani ribuan pelaku usaha F&B di seluruh Indonesia. Est. 2012.</p>
               <a
-                href="https://wa.me/6285169577447"
+                href="https://wa.me/6281113000966"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.fraudPhone}
               >
-                <i className="fab fa-whatsapp" /> 0851-6957-7447 (Click here)
+                <i className="fab fa-whatsapp" /> 0811-1300-0966 (Click here)
               </a>
             </div>
           </div>
@@ -125,7 +129,7 @@ export default function HomePage() {
           </div>
           <div className={styles.helpBtn}>
             <a
-              href="https://wa.me/6285169577447?text=Halo,%20Saya%20ingin%20bertanya%20tentang%20produk%20packaging"
+              href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
@@ -137,7 +141,12 @@ export default function HomePage() {
             {products.map((p) => (
               <div key={p.name} className={styles.productCard}>
                 <div className={styles.productImage}>
-                  <i className="fas fa-box-open" />
+                  <Image
+                    src={p.image}
+                    alt={p.name}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                  />
                 </div>
                 <div className={styles.productInfo}>
                   <h3>{p.name}</h3>
@@ -182,7 +191,7 @@ export default function HomePage() {
           <div className={styles.benefitsLayout}>
             <div className={styles.benefitsText}>
               <h2>Lebih Banyak Manfaat</h2>
-              <p>Keuntungan menggunakan jasa custom packaging dari Pick and Pack</p>
+              <p>Keuntungan menggunakan jasa custom packaging dari Printwork Indonesia</p>
             </div>
             <div className={styles.benefitsCards}>
               {benefits.map((b) => (
@@ -210,8 +219,14 @@ export default function HomePage() {
           </div>
           <div className={styles.clientsGrid}>
             {clients.map((c) => (
-              <div key={c} className={styles.clientItem}>
-                <span>{c}</span>
+              <div key={c.name} className={styles.clientItem}>
+                <Image
+                  src={c.logo}
+                  alt={c.name}
+                  width={120}
+                  height={60}
+                  style={{ objectFit: 'contain' }}
+                />
               </div>
             ))}
           </div>
@@ -228,7 +243,7 @@ export default function HomePage() {
           <div className={styles.videoWrapper}>
             <iframe
               src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="Pick and Pack Company Profile"
+              title="Printwork Indonesia Company Profile"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
@@ -246,7 +261,12 @@ export default function HomePage() {
             {blogPosts.map((post) => (
               <article key={post.title} className={styles.blogCard}>
                 <div className={styles.blogImage}>
-                  <i className="fas fa-newspaper" />
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                  />
                 </div>
                 <div className={styles.blogContent}>
                   <span className={styles.blogCat}>{post.cat}</span>
@@ -268,7 +288,7 @@ export default function HomePage() {
             <h2>Siap Membuat Custom Packaging?</h2>
             <p>Konsultasikan kebutuhan kemasan Anda dengan tim kami secara gratis</p>
             <a
-              href="https://wa.me/6285169577447?text=Halo,%20Saya%20tertarik%20untuk%20custom%20packaging.%20bisa%20tolong%20dibantu%20?"
+              href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-whatsapp"

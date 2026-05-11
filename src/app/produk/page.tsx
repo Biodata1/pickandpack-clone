@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './page.module.css';
 
 const categories = [
@@ -10,22 +11,16 @@ const categories = [
 ];
 
 const products = [
-  { name: 'Food Pail', tag: 'Food Grade', cat: 'fnb', desc: 'Kemasan food pail custom untuk berbagai jenis makanan.' },
-  { name: 'Lunch Box', tag: 'Food Grade', cat: 'fnb', desc: 'Kotak makan siang dengan desain custom sesuai brand Anda.' },
-  { name: 'Kotak Burger', tag: 'Food Grade', cat: 'fnb', desc: 'Kemasan burger custom dengan berbagai ukuran.' },
-  { name: 'Kantong Makanan', tag: 'Food Grade', cat: 'fnb', desc: 'Paper bag makanan food grade untuk take away.' },
-  { name: 'Paper Bowl', tag: 'Food Grade', cat: 'fnb', desc: 'Mangkuk kertas untuk soup, rice bowl, dan lainnya.' },
-  { name: 'Wrapper', tag: 'Food Grade', cat: 'fnb', desc: 'Pembungkus makanan custom dengan cetak full color.' },
-  { name: 'Sleeve', tag: 'Food Grade', cat: 'fnb', desc: 'Sleeve custom untuk cup, botol, dan packaging lainnya.' },
-  { name: 'Kotak Pizza', tag: 'Food Grade', cat: 'fnb', desc: 'Box pizza dengan berbagai ukuran dan desain.' },
-  { name: 'Skincare Box', tag: 'Premium', cat: 'skincare', desc: 'Kemasan premium untuk produk skincare dan kecantikan.' },
-  { name: 'Serum Box', tag: 'Premium', cat: 'skincare', desc: 'Box serum dengan finishing mewah dan elegan.' },
-  { name: 'Cosmetic Set Box', tag: 'Premium', cat: 'skincare', desc: 'Kemasan set kosmetik dengan insert custom.' },
-  { name: 'Gift Box', tag: 'Premium', cat: 'premium', desc: 'Kotak hadiah premium dengan desain eksklusif.' },
-  { name: 'Hampers Box', tag: 'Premium', cat: 'premium', desc: 'Box hampers untuk berbagai occasion dan event.' },
-  { name: 'Rigid Box', tag: 'Premium', cat: 'premium', desc: 'Hardbox premium dengan finishing hot stamp dan emboss.' },
-  { name: 'Corrugated Box', tag: 'Shipping', cat: 'shipping', desc: 'Kardus corrugated custom untuk pengiriman.' },
-  { name: 'Mailer Box', tag: 'Shipping', cat: 'shipping', desc: 'Box pengiriman e-commerce dengan cetak custom.' },
+  { name: 'Food Pail', tag: 'Food Grade', cat: 'fnb', desc: 'Kemasan food pail custom untuk berbagai jenis makanan.', image: 'https://www.printwork.id/images/product-img1.webp' },
+  { name: 'Lunch Box', tag: 'Food Grade', cat: 'fnb', desc: 'Kotak makan siang dengan desain custom sesuai brand Anda.', image: 'https://www.printwork.id/images/product-img2.webp' },
+  { name: 'Kotak Burger', tag: 'Food Grade', cat: 'fnb', desc: 'Kemasan burger custom dengan berbagai ukuran.', image: 'https://www.printwork.id/images/product-img3.webp' },
+  { name: 'Kantong Makanan', tag: 'Food Grade', cat: 'fnb', desc: 'Paper bag makanan food grade untuk take away.', image: 'https://www.printwork.id/images/product-img4.webp' },
+  { name: 'Paper Bowl', tag: 'Food Grade', cat: 'fnb', desc: 'Mangkuk kertas untuk soup, rice bowl, dan lainnya.', image: 'https://www.printwork.id/images/product-img7.webp' },
+  { name: 'Skincare Box', tag: 'Premium', cat: 'skincare', desc: 'Kemasan premium untuk produk skincare dan kecantikan.', image: 'https://www.printwork.id/images/product-img5.webp' },
+  { name: 'Serum Box', tag: 'Premium', cat: 'skincare', desc: 'Box serum dengan finishing mewah dan elegan.', image: 'https://www.printwork.id/images/product-img6.webp' },
+  { name: 'Gift Box', tag: 'Premium', cat: 'premium', desc: 'Kotak hadiah premium dengan desain eksklusif.', image: 'https://www.printwork.id/images/project-img1.webp' },
+  { name: 'Rigid Box', tag: 'Premium', cat: 'premium', desc: 'Hardbox premium dengan finishing hot stamp dan emboss.', image: 'https://www.printwork.id/images/project-img2.webp' },
+  { name: 'Mailer Box', tag: 'Shipping', cat: 'shipping', desc: 'Box pengiriman e-commerce dengan cetak custom.', image: 'https://www.printwork.id/images/product-img8.webp' },
 ];
 
 export default async function ProdukPage({ searchParams }: { searchParams: Promise<{ cat?: string }> }) {
@@ -62,14 +57,19 @@ export default async function ProdukPage({ searchParams }: { searchParams: Promi
             {filtered.map((p) => (
               <div key={p.name} className={styles.card}>
                 <div className={styles.cardImage}>
-                  <i className="fas fa-box-open" />
+                  <Image
+                    src={p.image}
+                    alt={p.name}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                  />
                 </div>
                 <div className={styles.cardBody}>
                   <span className={styles.tag}>{p.tag}</span>
                   <h3>{p.name}</h3>
                   <p>{p.desc}</p>
                   <a
-                    href={`https://wa.me/6285169577447?text=Halo, saya tertarik dengan produk ${p.name}`}
+                    href={`https://wa.me/6281113000966?text=Halo, saya tertarik dengan produk ${p.name}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.cardLink}

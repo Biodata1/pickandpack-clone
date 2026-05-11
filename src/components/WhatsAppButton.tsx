@@ -7,7 +7,7 @@ export default function WhatsAppButton() {
     <div className={styles.floatingBtns}>
       {/* Instagram */}
       <a
-        href="https://instagram.com/pickandpack.id"
+        href="https://instagram.com/printwork.id"
         target="_blank"
         rel="noopener noreferrer"
         className={styles.igBtn}
@@ -17,7 +17,7 @@ export default function WhatsAppButton() {
       </a>
       {/* WhatsApp */}
       <a
-        href="https://wa.me/6285169577447?text=Halo,%20Saya%20tertarik%20untuk%20custom%20packaging.%20bisa%20tolong%20dibantu%20?"
+        href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
         target="_blank"
         rel="noopener noreferrer"
         className={styles.waBtn}

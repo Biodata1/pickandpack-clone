@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
-import ScrollReveal from '@/components/ScrollReveal';
+import Reveal from '@/components/RevealAnimation';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Hubungi Kami — Printwork Indonesia',
-  description: 'Hubungi Printwork Indonesia untuk konsultasi kebutuhan custom packaging Anda. Kami siap membantu!',
+  title: 'Hubungi Kami',
+  description: 'Hubungi Printwork Indonesia untuk konsultasi kebutuhan custom packaging Anda.',
 };
 
 export default function KontakPage() {
@@ -12,11 +12,11 @@ export default function KontakPage() {
     <>
       <section className={styles.pageHeader}>
         <div className="container">
-          <ScrollReveal>
-            <span className={styles.headerBadge}>Hubungi Kami</span>
+          <Reveal>
+            <span className="eyebrow">Hubungi Kami</span>
             <h1>Get In <em>Touch</em></h1>
             <p>Konsultasikan kebutuhan custom packaging Anda. Tim kami siap membantu!</p>
-          </ScrollReveal>
+          </Reveal>
         </div>
       </section>
 
@@ -24,7 +24,7 @@ export default function KontakPage() {
         <div className="container">
           <div className={styles.contactGrid}>
             {/* Info Side */}
-            <ScrollReveal direction="left">
+            <Reveal direction="left">
               <div className={styles.infoSide}>
                 <h2>Informasi <em>Kontak</em></h2>
                 <p className={styles.subtitle}>Jangan ragu untuk menghubungi kami untuk konsultasi gratis mengenai kebutuhan kemasan Anda.</p>
@@ -74,10 +74,10 @@ export default function KontakPage() {
                   />
                 </div>
               </div>
-            </ScrollReveal>
+            </Reveal>
 
             {/* Form Side */}
-            <ScrollReveal direction="right">
+            <Reveal direction="right">
               <div className={styles.formCard}>
                 <h2>Kirim <em>Pesan</em></h2>
                 <p className={styles.formSubtitle}>Isi formulir berikut dan tim kami akan menghubungi Anda dalam 1x24 jam.</p>
@@ -103,7 +103,7 @@ export default function KontakPage() {
                   </button>
                 </form>
               </div>
-            </ScrollReveal>
+            </Reveal>
           </div>
         </div>
       </section>

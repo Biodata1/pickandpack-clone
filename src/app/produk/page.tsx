@@ -1,6 +1,10 @@
+'use client';
+
+import { Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import ScrollReveal from '@/components/ScrollReveal';
+import { useSearchParams } from 'next/navigation';
+import Reveal from '@/components/RevealAnimation';
 import styles from './page.module.css';
 
 const categories = [
@@ -22,26 +26,53 @@ const products = [
   { name: 'Kemasan Lainnya', tag: 'Custom', cat: 'premium', desc: 'Berbagai jenis packaging custom sesuai kebutuhan bisnis.', image: '/printwork/food-pail-m-1.webp' },
 ];
 
-export default async function ProdukPage({ searchParams }: { searchParams: Promise<{ cat?: string }> }) {
-  const params = await searchParams;
-  const activeCat = params.cat || 'all';
+export default function ProdukPage() {
+  return (
+    <Suspense fallback={<ProdukLoading />}>
+      <ProdukContent />
+    </Suspense>
+  );
+}
+
+function ProdukLoading() {
+  return (
+    <>
+      <section className={styles.pageHeader}>
+        <div className="container">
+          <span className="eyebrow">Katalog Produk</span>
+          <h1>Produk <em>Kami</em></h1>
+          <p>Berbagai jenis custom packaging berkualitas untuk kebutuhan bisnis Anda</p>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container">
+          <div style={{ minHeight: '60vh' }} />
+        </div>
+      </section>
+    </>
+  );
+}
+
+function ProdukContent() {
+  const searchParams = useSearchParams();
+  const activeCat = searchParams.get('cat') || 'all';
   const filtered = activeCat === 'all' ? products : products.filter((p) => p.cat === activeCat);
 
   return (
     <>
       <section className={styles.pageHeader}>
         <div className="container">
-          <ScrollReveal>
-            <span className={styles.headerBadge}>Katalog Produk</span>
+          <Reveal>
+            <span className="eyebrow">Katalog Produk</span>
             <h1>Produk <em>Kami</em></h1>
             <p>Berbagai jenis custom packaging berkualitas untuk kebutuhan bisnis Anda</p>
-          </ScrollReveal>
+          </Reveal>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <ScrollReveal>
+          <Reveal>
             <div className={styles.filters}>
               {categories.map((cat) => (
                 <Link
@@ -53,12 +84,12 @@ export default async function ProdukPage({ searchParams }: { searchParams: Promi
                 </Link>
               ))}
             </div>
-          </ScrollReveal>
+          </Reveal>
 
-          <ScrollReveal delay={100} stagger>
-            <div className={styles.grid}>
-              {filtered.map((p) => (
-                <div key={p.name} className={styles.card}>
+          <div className={styles.grid}>
+            {filtered.map((p, i) => (
+              <Reveal key={p.name} delay={i * 0.06}>
+                <div className={styles.card}>
                   <div className={styles.cardImage}>
                     <Image src={p.image} alt={p.name} fill style={{ objectFit: 'cover' }} />
                     <div className={styles.cardOverlay}>
@@ -87,9 +118,9 @@ export default async function ProdukPage({ searchParams }: { searchParams: Promi
                     </a>
                   </div>
                 </div>
-              ))}
-            </div>
-          </ScrollReveal>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </>

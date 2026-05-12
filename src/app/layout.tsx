@@ -1,76 +1,111 @@
-import type { Metadata } from "next";
-import { Montserrat, Playfair_Display } from "next/font/google";
-import "./globals.css";
-import Script from "next/script";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import type { Metadata, Viewport } from 'next';
+import { Cormorant_Garamond, Inter, Syne } from 'next/font/google';
+import Script from 'next/script';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
+import SmoothScroll from '@/components/SmoothScroll';
+import './globals.css';
 
-const montserrat = Montserrat({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+/* ── Premium Typography Stack ── */
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-heading',
+  display: 'swap',
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-body',
+  display: 'swap',
 });
 
+const syne = Syne({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+/* ── SEO Metadata ── */
 export const metadata: Metadata = {
-  title: "PT Printwork Indonesia | Premium Custom Packaging Solutions",
+  title: {
+    default: 'PT Printwork Indonesia | Premium Custom Packaging Solutions',
+    template: '%s | Printwork Indonesia',
+  },
   description:
-    "PT Printwork Indonesia — Produsen kemasan eksklusif, food grade, dan solusi custom packaging premium untuk brand Anda. Bersertifikasi ISO 9001:2015 & FSSC 22000. Est. 2012.",
-  keywords:
-    "Packaging box makanan custom, Printwork, PT Printwork Indonesia, Custom kemasan produk, Cetak packaging, food grade packaging, custom box, kemasan makanan",
+    'PT Printwork Indonesia — Produsen kemasan eksklusif, food grade, dan solusi custom packaging premium untuk brand Anda. Kemasan berkualitas tinggi, bersertifikasi ISO 9001:2015 & FSSC 22000. Est. 2012.',
+  keywords: [
+    'kemasan custom',
+    'packaging premium',
+    'kemasan makanan',
+    'food grade packaging',
+    'custom box',
+    'Printwork Indonesia',
+    'kemasan eksklusif',
+    'food packaging',
+  ],
+  authors: [{ name: 'PT Printwork Indonesia' }],
   openGraph: {
-    title: "PT Printwork Indonesia | Premium Custom Packaging",
-    description: "Solusi kemasan custom berkualitas tinggi untuk brand Anda. Bersertifikasi ISO 9001:2015 & FSSC 22000.",
-    type: "website",
-    locale: "id_ID",
-    siteName: "Printwork Indonesia",
+    type: 'website',
+    locale: 'id_ID',
+    url: 'https://www.printwork.id',
+    siteName: 'PT Printwork Indonesia',
+    title: 'PT Printwork Indonesia | Premium Custom Packaging Solutions',
+    description:
+      'Solusi kemasan custom berkualitas tinggi yang membangun identitas brand Anda di pasar modern.',
+    images: [
+      {
+        url: '/printwork/new_logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Printwork Indonesia Premium Packaging',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PT Printwork Indonesia | Premium Packaging',
+    description:
+      'Produsen kemasan eksklusif & food grade packaging premium. Est. 2012.',
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "PT Printwork Indonesia",
-  url: "https://www.printwork.id",
-  logo: "https://www.printwork.id/printwork/new_logo.png",
-  description:
-    "PT Printwork Indonesia adalah perusahaan spesialis kemasan makanan custom yang telah melayani ribuan pelaku usaha F&B di seluruh Indonesia sejak 2012.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Grand Puri Laras, Jl. Pisangan Raya, Cireundeu, Ciputat Timur",
-    addressLocality: "Tangerang Selatan",
-    addressRegion: "Banten",
-    addressCountry: "ID",
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+62-811-1300-0966",
-    contactType: "customer service",
-    availableLanguage: ["Indonesian", "English"],
-  },
-  sameAs: ["https://instagram.com/printwork.id"],
+export const viewport: Viewport = {
+  themeColor: '#0D1B3E',
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="id" className={`${montserrat.variable} ${playfair.variable}`}>
+    <html lang="id" className={`${cormorant.variable} ${inter.variable} ${syne.variable}`}>
       <head>
+        {/* Preconnect */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Google Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-Q0YJ0TH3B1"
+          src="https://www.googletagmanager.com/gtag/js?id=G-1FJCK98NLN"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -78,19 +113,44 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-Q0YJ0TH3B1');
+            gtag('config', 'G-1FJCK98NLN');
           `}
         </Script>
+
+        {/* JSON-LD Schema */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'PT Printwork Indonesia',
+              url: 'https://www.printwork.id',
+              logo: 'https://www.printwork.id/printwork/new_logo.png',
+              description:
+                'PT Printwork Indonesia - Produsen kemasan eksklusif, food grade, dan solusi custom packaging premium.',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Tangerang Selatan',
+                addressCountry: 'ID',
+              },
+              contactPoint: {
+                '@type': 'ContactPoint',
+                telephone: '+6281113000966',
+                contactType: 'customer service',
+              },
+              sameAs: ['https://instagram.com/printwork.id'],
+            }),
+          }}
         />
       </head>
       <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppButton />
+        <SmoothScroll>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppButton />
+        </SmoothScroll>
       </body>
     </html>
   );

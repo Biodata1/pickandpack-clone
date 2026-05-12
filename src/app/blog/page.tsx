@@ -1,6 +1,12 @@
 import Link from 'next/link';
-import ScrollReveal from '@/components/ScrollReveal';
+import { Metadata } from 'next';
+import Reveal from '@/components/RevealAnimation';
 import styles from './page.module.css';
+
+export const metadata: Metadata = {
+  title: 'Blog & Artikel',
+  description: 'Berita, artikel, dan wawasan terbaru seputar dunia packaging dari Printwork Indonesia.',
+};
 
 const blogPosts = [
   {
@@ -50,18 +56,18 @@ export default function BlogPage() {
     <>
       <section className={styles.pageHeader}>
         <div className="container">
-          <ScrollReveal>
-            <span className={styles.headerBadge}>Insight & Tips</span>
+          <Reveal>
+            <span className="eyebrow">Insight & Tips</span>
             <h1>Blog & <em>Artikel</em></h1>
             <p>Berita, artikel, dan wawasan terbaru seputar dunia packaging</p>
-          </ScrollReveal>
+          </Reveal>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
           {/* Featured */}
-          <ScrollReveal>
+          <Reveal>
             <div className={styles.featured}>
               <div className={styles.featuredImage}>
                 <div className={styles.featuredPlaceholder}>
@@ -82,13 +88,13 @@ export default function BlogPage() {
                 </Link>
               </div>
             </div>
-          </ScrollReveal>
+          </Reveal>
 
           {/* Grid */}
-          <ScrollReveal delay={100} stagger>
-            <div className={styles.grid}>
-              {rest.map((post) => (
-                <article key={post.title} className={styles.card}>
+          <div className={styles.grid}>
+            {rest.map((post, i) => (
+              <Reveal key={post.title} delay={i * 0.08}>
+                <article className={styles.card}>
                   <div className={styles.cardImage}>
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                   </div>
@@ -108,9 +114,9 @@ export default function BlogPage() {
                     </div>
                   </div>
                 </article>
-              ))}
-            </div>
-          </ScrollReveal>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </>

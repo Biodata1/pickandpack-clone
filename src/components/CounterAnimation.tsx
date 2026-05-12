@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { useInView } from 'framer-motion';
 
 interface CounterAnimationProps {
   end: number;
@@ -14,30 +15,19 @@ export default function CounterAnimation({
   end,
   suffix = '',
   prefix = '',
-  duration = 2000,
+  duration = 2200,
   className = '',
 }: CounterAnimationProps) {
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
-  const ref = useRef<HTMLSpanElement>(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started) {
-          setStarted(true);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [started]);
+    if (isInView && !started) {
+      setStarted(true);
+    }
+  }, [isInView, started]);
 
   useEffect(() => {
     if (!started) return;
@@ -46,8 +36,8 @@ export default function CounterAnimation({
     const timer = setInterval(() => {
       const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease-out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
+      // Ease-out expo — premium deceleration
+      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       setCount(Math.floor(eased * end));
 
       if (progress >= 1) {
@@ -61,7 +51,7 @@ export default function CounterAnimation({
 
   return (
     <span ref={ref} className={className}>
-      {prefix}{count.toLocaleString()}{suffix}
+      {prefix}{count.toLocaleString('id-ID')}{suffix}
     </span>
   );
 }

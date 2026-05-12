@@ -20,9 +20,8 @@ const defaultItems = [
 export default function MarqueeStrip({
   items = defaultItems,
   variant = 'dark',
-  speed = 30,
+  speed = 35,
 }: MarqueeStripProps) {
-  // Duplicate items for seamless infinite loop
   const allItems = [...items, ...items, ...items, ...items];
 
   return (
@@ -34,7 +33,7 @@ export default function MarqueeStrip({
         {allItems.map((item, i) => (
           <span key={i} className="marquee-item">
             {item}
-            <span className="separator">✦</span>
+            <span className="sep">✦</span>
           </span>
         ))}
       </div>

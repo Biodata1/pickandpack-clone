@@ -1,419 +1,488 @@
-import HeroSlider from '@/components/HeroSlider';
-import MarqueeStrip from '@/components/MarqueeStrip';
-import ScrollReveal from '@/components/ScrollReveal';
-import CounterAnimation from '@/components/CounterAnimation';
-import FAQAccordion from '@/components/FAQAccordion';
-import Link from 'next/link';
+'use client';
+
 import Image from 'next/image';
+import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import styles from './page.module.css';
+import Reveal, { RevealChild } from '@/components/RevealAnimation';
+import MarqueeStrip from '@/components/MarqueeStrip';
+import CounterAnimation from '@/components/CounterAnimation';
+
+/* Dynamic imports for performance */
+const CinematicHero = dynamic(() => import('@/components/CinematicHero'), { ssr: false });
+const FAQAccordion = dynamic(() => import('@/components/FAQAccordion'));
+
+/* ── Data ── */
 
 const stats = [
-  { value: 1000, suffix: '+', label: 'Brand Terpercaya' },
-  { value: 14, suffix: '+', label: 'Tahun Pengalaman' },
-  { value: 1, suffix: 'M+', label: 'Box Diproduksi' },
-  { value: 500, suffix: '+', label: 'Min. Order (pcs)' },
-];
-
-const newProducts = [
-  { name: 'Lunch Box Selip Eco-Kraft (XL-Jumbo)', price: 'Rp 960/pcs', cat: 'Lunch Box', image: '/printwork/lunchbox-ek-jumbo-1.webp' },
-  { name: 'Lunch Box Selip Food Grade (XL-Jumbo)', price: 'Rp 1.830/pcs', cat: 'Lunch Box', image: '/printwork/lunchbox-fg-jumbo-1.webp' },
-  { name: 'Standing Pouch Paper Metalized', price: 'Rp 2.725/pcs', cat: 'Kantong Kertas', image: '/printwork/standing-pouch-paper-metalized-1.webp' },
-  { name: 'Sachet Paper Metalized', price: 'Rp 1.600/pcs', cat: 'Kantong Kertas', image: '/printwork/sachet-paper-metalized-1.webp' },
-  { name: 'Gusset Paper Metalized', price: 'Rp 1.200/pcs', cat: 'Kantong Kertas', image: '/printwork/gusset-paper-metalized-1.webp' },
-];
-
-const whyUs = [
-  { icon: '🎨', title: 'Desain & Inovasi', desc: 'Tim kami menciptakan pola packaging khusus yang sesuai untuk bisnis Anda dengan kreativitas visual terdepan.' },
-  { icon: '🏆', title: 'Kualitas Terjamin', desc: 'Material berkualitas tinggi bersertifikasi ISO 9001:2015 & FSSC 22000 untuk standar internasional.' },
-  { icon: '⚡', title: 'Manufaktur Presisi', desc: 'Mesin Heidelberg terintegrasi dengan proses produksi efisien dan Quality Control ketat.' },
-  { icon: '🌿', title: 'Keamanan Pangan', desc: 'Material Food Grade (Foopak) dan Eco-Kraft yang ramah lingkungan dan aman untuk makanan.' },
+  { value: 10000, suffix: '+', label: 'Pelanggan Puas' },
+  { value: 15, suffix: '+', label: 'Tahun Pengalaman' },
+  { value: 50, suffix: 'Jt+', label: 'Produk Terkirim' },
+  { value: 100, suffix: '%', label: 'Food Grade Certified' },
 ];
 
 const products = [
-  { name: 'Lunch Box & Pail', tag: 'Food Grade', cat: 'fnb', image: '/printwork/lunchbox-ek-jumbo-1.webp' },
-  { name: 'Dus Nasi & Martabak', tag: 'Custom', cat: 'fnb', image: '/printwork/lunchbox-fg-jumbo-1.webp' },
-  { name: 'Dus Fried Chicken', tag: 'Food Grade', cat: 'fnb', image: '/printwork/fc-box-l-1.webp' },
-  { name: 'Kantong Kertas', tag: 'Eco Friendly', cat: 'fnb', image: '/printwork/paperbag-m-1.webp' },
-  { name: 'Packaging & Hard Box', tag: 'Premium', cat: 'premium', image: '/printwork/standing-pouch-paper-metalized-1.webp' },
-  { name: 'Sachet & Standing Pouch', tag: 'Custom', cat: 'premium', image: '/printwork/sachet-paper-metalized-1.webp' },
-  { name: 'Food Wrapping Paper', tag: 'Food Grade', cat: 'fnb', image: '/printwork/gusset-paper-metalized-1.webp' },
-  { name: 'Kemasan Lainnya', tag: 'Custom', cat: 'premium', image: '/printwork/food-pail-m-1.webp' },
-];
-
-const orderSteps = [
-  { num: '01', title: 'Konsultasi', desc: 'Hubungi admin sales kami untuk diskusi kebutuhan packaging Anda.', icon: '💬' },
-  { num: '02', title: 'Penawaran', desc: 'Kami menghitung dan memberikan penawaran harga terbaik untuk Anda.', icon: '📋' },
-  { num: '03', title: 'Produksi', desc: 'Setelah sampel disetujui, masuk ke tahap produksi massal presisi.', icon: '🏭' },
-  { num: '04', title: 'Pengiriman', desc: 'Packaging dikirim ke alamat Anda dengan aman dan tepat waktu.', icon: '📦' },
+  { name: 'Lunch Box', image: '/printwork/lunchbox-ek-jumbo-1.webp', tag: 'Food Grade' },
+  { name: 'Standing Pouch', image: '/printwork/standing-pouch-paper-metalized-1.webp', tag: 'Custom Print' },
+  { name: 'Kantong Kertas', image: '/printwork/paperbag-m-1.webp', tag: 'Eco-Kraft' },
+  { name: 'Dus Kentang', image: '/printwork/dus_kentang.webp', tag: 'F&B' },
+  { name: 'Fried Chicken Box', image: '/printwork/fc-box-l-1.webp', tag: 'Premium' },
+  { name: 'Food Pail', image: '/printwork/food-pail-m-1.webp', tag: 'Premium' },
 ];
 
 const benefits = [
-  { icon: '📐', title: 'Pola khusus untuk Anda', desc: 'Tim kami akan menciptakan pola packaging khusus yang sesuai untuk bisnis Anda.' },
-  { icon: '💰', title: 'Efisiensi biaya', desc: 'Membantu menentukan ukuran, bahan dan finishing packaging yang paling efisien.' },
-  { icon: '🖨️', title: 'Cetak sesuai kebutuhan', desc: 'Minimum Order Quantity (MOQ) kompetitif mulai dari 500 pcs untuk semua skala bisnis.' },
+  {
+    icon: '🛡️',
+    title: 'Food Grade Certified',
+    desc: 'Material bersertifikasi FSSC 22000, aman untuk kontak langsung dengan makanan.',
+  },
+  {
+    icon: '🎨',
+    title: 'Full Custom Design',
+    desc: 'Desain bebas sesuai identitas brand, didukung tim desainer profesional.',
+  },
+  {
+    icon: '⚡',
+    title: 'Produksi Cepat',
+    desc: 'Proses produksi efisien dengan kapasitas besar dan timeline terjamin.',
+  },
+  {
+    icon: '📦',
+    title: 'MOQ Terjangkau',
+    desc: 'Minimum order mulai dari 500 pcs, cocok untuk UMKM hingga korporasi.',
+  },
+];
+
+const processSteps = [
+  { num: '01', title: 'Konsultasi', desc: 'Diskusi kebutuhan kemasan via WhatsApp, email, atau meeting.' },
+  { num: '02', title: 'Desain', desc: 'Tim desainer membuat mockup kemasan sesuai branding Anda.' },
+  { num: '03', title: 'Produksi', desc: 'Proses cetak premium dengan kontrol kualitas ketat di setiap tahap.' },
+  { num: '04', title: 'Pengiriman', desc: 'Pengiriman aman ke seluruh Indonesia dengan packaging protektif.' },
 ];
 
 const clients = [
-  { name: 'Astra', logo: '/printwork/sponsor4.png' },
-  { name: 'DJI', logo: '/printwork/sponsor3.png' },
-  { name: 'Kopi Kenangan', logo: '/printwork/sponsor2.png' },
-  { name: 'Janji Jiwa', logo: '/printwork/sponsor1.png' },
-  { name: 'Bakerman', logo: '/printwork/sponsor5.png' },
-  { name: 'SOCIOLA', logo: '/printwork/sponsor6.png' },
-  { name: 'BCA', logo: '/printwork/sponsor7.png' },
-  { name: 'Jotun', logo: '/printwork/sponsor8.png' },
+  '/printwork/sponsor1.png',
+  '/printwork/sponsor2.png',
+  '/printwork/sponsor3.png',
+  '/printwork/sponsor4.png',
+  '/printwork/sponsor5.png',
 ];
 
 const faqItems = [
-  { question: 'Jenis kemasan apa saja yang tersedia?', answer: 'Kami menyediakan berbagai jenis kemasan termasuk Lunch Box, Food Pail, Dus Fried Chicken, Dus Nasi, Kantong Kertas, Standing Pouch, Sachet, Hard Box Premium, dan kemasan custom lainnya. Semua tersedia dalam material Food Grade dan Eco-Kraft.' },
-  { question: 'Berapa minimum order?', answer: 'Minimum order kami mulai dari 500 pcs untuk semua jenis produk. Kami melayani dari skala UMKM hingga korporasi besar dengan harga yang kompetitif di setiap tier kuantitas.' },
-  { question: 'Apakah bisa custom branding?', answer: 'Tentu! Kami spesialis dalam custom branding pada kemasan. Tim desain kami akan membantu mewujudkan identitas visual brand Anda pada kemasan dengan kualitas cetak premium menggunakan mesin Heidelberg.' },
-  { question: 'Material apa yang digunakan?', answer: 'Kami menggunakan material Food Grade bersertifikat BPOM (Foopak) dan Eco-Kraft yang ramah lingkungan. Seluruh material telah memenuhi standar keamanan pangan internasional dengan sertifikasi ISO 9001:2015 & FSSC 22000.' },
-  { question: 'Bagaimana proses pemesanan?', answer: 'Proses pemesanan kami sederhana: (1) Konsultasi via WhatsApp, (2) Penawaran harga, (3) Approval desain & sampel, (4) Produksi massal, (5) Pengiriman. Tim kami akan mendampingi Anda di setiap tahap.' },
-  { question: 'Apakah melayani pengiriman ke seluruh Indonesia?', answer: 'Ya, kami melayani pengiriman ke seluruh wilayah Indonesia. Kami bekerja sama dengan ekspedisi terpercaya untuk memastikan kemasan Anda tiba dengan aman dan tepat waktu.' },
+  {
+    question: 'Berapa minimum order (MOQ) untuk kemasan custom?',
+    answer: 'Minimum order kami mulai dari 500 pcs untuk sebagian besar produk kemasan custom. Untuk produk tertentu seperti hard box premium, MOQ bisa berbeda. Hubungi tim kami untuk informasi detail.',
+  },
+  {
+    question: 'Apakah kemasan Printwork aman untuk makanan (food grade)?',
+    answer: 'Ya, semua material kemasan kami telah bersertifikasi food grade dan memenuhi standar FSSC 22000. Kami menggunakan tinta food safe dan material yang aman untuk kontak langsung dengan makanan.',
+  },
+  {
+    question: 'Berapa lama proses produksi kemasan custom?',
+    answer: 'Proses produksi rata-rata membutuhkan waktu 14-21 hari kerja setelah desain disetujui. Untuk pesanan urgent, kami menyediakan layanan fast track dengan timeline lebih cepat.',
+  },
+  {
+    question: 'Apakah bisa mendapatkan sample sebelum produksi massal?',
+    answer: 'Tentu! Kami menyediakan layanan sample/proof sebelum produksi massal dimulai. Sample akan dikirimkan untuk persetujuan Anda sebelum proses cetak berjalan.',
+  },
+  {
+    question: 'Material apa saja yang tersedia?',
+    answer: 'Kami menyediakan beragam material termasuk Art Carton, Duplex, Ivory, Kraft (Brown & White), Corrugated, Foopak (Food Grade), dan Paper Metalized. Setiap material cocok untuk jenis kemasan tertentu.',
+  },
 ];
 
 const blogPosts = [
-  { title: 'Tren Packaging 2026: Solusi Berkelanjutan untuk Masa Depan', cat: 'ARTIKEL', date: '15 April 2026', image: '/printwork/pdf_image_401.jpeg' },
-  { title: 'Cara Membangun Brand Identity Melalui Kemasan Produk', cat: 'ARTIKEL', date: '10 April 2026', image: '/printwork/pdf_image_424.jpeg' },
-  { title: 'Pentingnya Menggunakan Bahan Food Grade untuk Packaging', cat: 'EDUKASI', date: '5 April 2026', image: '/printwork/pdf_image_316.jpeg' },
+  {
+    title: 'Tren Kemasan Makanan 2025: Sustainable & Premium',
+    image: '/printwork/pdf_image_316.jpeg',
+    date: '12 Jan 2025',
+    excerpt: 'Pelajari tren terbaru dalam industri kemasan makanan yang mengutamakan keberlanjutan.',
+  },
+  {
+    title: 'Cara Memilih Material Kemasan yang Tepat',
+    image: '/printwork/pdf_image_401.jpeg',
+    date: '28 Dec 2024',
+    excerpt: 'Panduan lengkap memilih material kemasan berdasarkan jenis produk makanan Anda.',
+  },
+  {
+    title: 'Pentingnya Branding pada Kemasan Produk F&B',
+    image: '/printwork/pdf_image_424.jpeg',
+    date: '15 Nov 2024',
+    excerpt: 'Kemasan adalah touchpoint pertama dengan konsumen. Maksimalkan impact brand Anda.',
+  },
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* ===== HERO ===== */}
-      <HeroSlider />
+      {/* ═══════════════════════════════════════════════
+          1. CINEMATIC HERO
+          ═══════════════════════════════════════════════ */}
+      <CinematicHero />
 
-      {/* ===== MARQUEE STRIP ===== */}
+      {/* ═══════════════════════════════════════════════
+          2. MARQUEE STRIP
+          ═══════════════════════════════════════════════ */}
       <MarqueeStrip />
 
-      {/* ===== STATS ===== */}
-      <section className={styles.statsSection}>
+      {/* ═══════════════════════════════════════════════
+          3. STATISTICS BAR
+          ═══════════════════════════════════════════════ */}
+      <section className={`section-dark ${styles.statsSection}`}>
         <div className="container">
           <div className={styles.statsGrid}>
-            {stats.map((s) => (
-              <div key={s.label} className={styles.stat}>
-                <span className={styles.statValue}>
-                  <CounterAnimation end={s.value} suffix={s.suffix} />
-                </span>
-                <span className={styles.statLabel}>{s.label}</span>
-              </div>
+            {stats.map((s, i) => (
+              <Reveal key={i} delay={i * 0.1}>
+                <div className={styles.statItem}>
+                  <span className={styles.statValue}>
+                    <CounterAnimation end={s.value} suffix={s.suffix} />
+                  </span>
+                  <span className={styles.statLabel}>{s.label}</span>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== NEW PRODUCTS ===== */}
-      <section className={`section ${styles.newProductsSection}`}>
+      {/* ═══════════════════════════════════════════════
+          4. ABOUT / WHY PRINTWORK
+          ═══════════════════════════════════════════════ */}
+      <section className={`section ${styles.aboutSection}`}>
         <div className="container">
-          <ScrollReveal>
-            <div className="section-title">
-              <span className="subtitle-badge">Baru Hadir</span>
-              <h2>Produk <em>Terbaru</em></h2>
-              <p>Kemasan terbaru kami dengan material premium dan harga kompetitif</p>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={200}>
-            <div className={styles.newProductsScroll}>
-              {newProducts.map((p) => (
-                <div key={p.name} className={styles.newProductCard}>
-                  <div className={styles.newProductImage}>
-                    <Image src={p.image} alt={p.name} fill style={{ objectFit: 'cover' }} />
-                    <span className={styles.newBadge}>New</span>
-                  </div>
-                  <div className={styles.newProductInfo}>
-                    <span className={styles.newProductCat}>{p.cat}</span>
-                    <h3>{p.name}</h3>
-                    <span className={styles.newProductPrice}>{p.price}</span>
-                  </div>
+          <div className={styles.aboutGrid}>
+            <Reveal direction="left" className={styles.aboutVisual}>
+              <div className={styles.aboutImageWrap}>
+                <Image
+                  src="/printwork/pdf_image_316.jpeg"
+                  alt="Printwork Manufacturing"
+                  width={560}
+                  height={400}
+                  className={styles.aboutImage}
+                />
+                <div className={styles.aboutFloatCard}>
+                  <span className={styles.floatCardNum}>15+</span>
+                  <span className={styles.floatCardText}>Tahun<br/>Pengalaman</span>
                 </div>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ===== WHY CHOOSE US ===== */}
-      <section className={`section section-dark ${styles.whySection}`}>
-        <div className="container">
-          <ScrollReveal>
-            <div className="section-title">
-              <span className="subtitle-badge">Berkomitmen pada Kualitas</span>
-              <h2>Selalu <em>Berinovasi</em></h2>
-              <p>Kami menggabungkan presisi teknis dengan kreativitas visual untuk membangun brand Anda</p>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={100} stagger>
-            <div className={styles.whyGrid}>
-              {whyUs.map((item) => (
-                <div key={item.title} className={styles.whyCard}>
-                  <div className={styles.whyIcon}>{item.icon}</div>
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ===== MARQUEE 2 ===== */}
-      <MarqueeStrip variant="light" />
-
-      {/* ===== PRODUCTS ===== */}
-      <section className={`section ${styles.productSection}`}>
-        <div className="container">
-          <ScrollReveal>
-            <div className="section-title">
-              <span className="subtitle-badge">Katalog</span>
-              <h2>Produk <em>Kami</em></h2>
-              <p>Berbagai jenis custom packaging untuk kebutuhan bisnis Anda</p>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <div className={styles.helpBtn}>
-              <a
-                href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-whatsapp"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-                Kami Siap Membantu Anda
-              </a>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={200} stagger>
-            <div className={styles.productsGrid}>
-              {products.map((p) => (
-                <div key={p.name} className={styles.productCard}>
-                  <div className={styles.productImage}>
-                    <Image src={p.image} alt={p.name} fill style={{ objectFit: 'cover' }} />
-                    <div className={styles.productOverlay}>
-                      <Link href={`/produk?cat=${p.cat}`} className={styles.productOverlayBtn}>
-                        Lihat Detail
-                      </Link>
-                    </div>
-                  </div>
-                  <div className={styles.productInfo}>
-                    <span className={styles.productTag}>{p.tag}</span>
-                    <h3>{p.name}</h3>
-                    <Link href={`/produk?cat=${p.cat}`} className={styles.productLink}>
-                      Detail klik disini
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={300}>
-            <div className={styles.viewAll}>
-              <Link href="/produk" className="btn btn-outline">
-                Lihat Semua Produk
-              </Link>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ===== HOW TO ORDER ===== */}
-      <section className={`section section-dark ${styles.orderSection}`}>
-        <div className="container">
-          <ScrollReveal>
-            <div className="section-title">
-              <span className="subtitle-badge">Mudah & Transparan</span>
-              <h2>Cara <em>Order</em></h2>
-              <p>Proses pemesanan yang sederhana dari konsultasi hingga pengiriman</p>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={200} stagger>
-            <div className={styles.stepsGrid}>
-              {orderSteps.map((step) => (
-                <div key={step.num} className={styles.stepCard}>
-                  <div className={styles.stepIcon}>{step.icon}</div>
-                  <div className={styles.stepNum}>{step.num}</div>
-                  <h3>{step.title}</h3>
-                  <p>{step.desc}</p>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ===== BENEFITS ===== */}
-      <section className={`section ${styles.benefitsSection}`}>
-        <div className="container">
-          <div className={styles.benefitsLayout}>
-            <ScrollReveal direction="left">
-              <div className={styles.benefitsText}>
-                <span className="subtitle-badge">Keunggulan</span>
-                <h2>Lebih Banyak <em>Manfaat</em></h2>
-                <p>Keuntungan menggunakan jasa custom packaging dari Printwork Indonesia untuk bisnis Anda</p>
-                <a
-                  href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary"
-                  style={{ marginTop: 24 }}
-                >
-                  Konsultasi Sekarang
-                </a>
               </div>
-            </ScrollReveal>
-            <ScrollReveal direction="right">
-              <div className={styles.benefitsCards}>
-                {benefits.map((b) => (
-                  <div key={b.title} className={styles.benefitCard}>
-                    <div className={styles.benefitIcon}>{b.icon}</div>
+            </Reveal>
+
+            <Reveal direction="right" className={styles.aboutContent}>
+              <span className="eyebrow">Tentang Kami</span>
+              <h2>Spesialis Kemasan <em>Premium</em> Indonesia</h2>
+              <p>
+                PT Printwork Indonesia adalah perusahaan spesialis kemasan makanan custom yang telah
+                melayani ribuan pelaku usaha F&B di seluruh Indonesia sejak 2012. Kami menggabungkan
+                teknologi cetak modern dengan material berkualitas tinggi untuk menghasilkan kemasan
+                yang tidak hanya melindungi produk, tetapi juga memperkuat identitas brand Anda.
+              </p>
+              <div className={styles.aboutFeatures}>
+                {benefits.map((b, i) => (
+                  <div key={i} className={styles.aboutFeatureItem}>
+                    <span className={styles.featureIcon}>{b.icon}</span>
                     <div>
-                      <h3>{b.title}</h3>
+                      <strong>{b.title}</strong>
                       <p>{b.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
-            </ScrollReveal>
+              <div className={styles.aboutCtas}>
+                <Link href="/kontak" className="btn btn-primary">
+                  Hubungi Kami
+                </Link>
+                <Link href="/sertifikat" className="btn btn-outline">
+                  Lihat Sertifikasi
+                </Link>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* ===== CLIENT LOGOS ===== */}
-      <section className={`section ${styles.clientsSection}`}>
+      {/* ═══════════════════════════════════════════════
+          5. MARQUEE STRIP (Light)
+          ═══════════════════════════════════════════════ */}
+      <MarqueeStrip
+        variant="light"
+        items={[
+          'Kualitas Terjamin',
+          'Efisiensi Produksi',
+          'Fokus Pelanggan',
+          'Keamanan Pangan',
+          'Ramah Lingkungan',
+          'Inovasi',
+          'Integritas',
+          'Keandalan',
+        ]}
+        speed={40}
+      />
+
+      {/* ═══════════════════════════════════════════════
+          6. PRODUCT SHOWCASE
+          ═══════════════════════════════════════════════ */}
+      <section className={`section section-dark ${styles.productsSection}`}>
         <div className="container">
-          <ScrollReveal>
-            <div className="section-title">
-              <span className="subtitle-badge">Dipercaya Oleh</span>
-              <h2>Klien <em>Kami</em></h2>
-              <p>Brand-brand ternama yang telah mempercayakan kebutuhan packaging mereka</p>
+          <Reveal>
+            <div className="section-header">
+              <span className="eyebrow">Katalog Produk</span>
+              <h2>Kemasan <em>Berkualitas</em> Tinggi</h2>
+              <p>
+                Beragam pilihan kemasan custom untuk berbagai kebutuhan industri F&B,
+                dari UMKM hingga brand nasional.
+              </p>
             </div>
-          </ScrollReveal>
+          </Reveal>
+
+          <div className={styles.productsGrid}>
+            {products.map((p, i) => (
+              <Reveal key={i} delay={i * 0.08}>
+                <Link href="/produk" className={styles.productCard}>
+                  <div className={styles.productImageWrap}>
+                    <Image
+                      src={p.image}
+                      alt={p.name}
+                      width={400}
+                      height={400}
+                      className={styles.productImage}
+                    />
+                    <div className={styles.productOverlay}>
+                      <span className={styles.productCta}>Lihat Detail →</span>
+                    </div>
+                  </div>
+                  <div className={styles.productInfo}>
+                    <span className={styles.productTag}>{p.tag}</span>
+                    <h3 className={styles.productName}>{p.name}</h3>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <div className={styles.productsCta}>
+              <Link href="/produk" className="btn btn-ghost">
+                Lihat Semua Produk
+              </Link>
+            </div>
+          </Reveal>
         </div>
-        <div className={styles.clientsMarquee}>
-          <div className={styles.clientsTrack}>
-            {[...clients, ...clients, ...clients].map((c, i) => (
-              <div key={`${c.name}-${i}`} className={styles.clientItem}>
-                <Image src={c.logo} alt={c.name} width={120} height={60} style={{ objectFit: 'contain' }} />
-              </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════
+          7. ORDER PROCESS
+          ═══════════════════════════════════════════════ */}
+      <section className={`section ${styles.processSection}`}>
+        <div className="container">
+          <Reveal>
+            <div className="section-header">
+              <span className="eyebrow">Cara Order</span>
+              <h2>Proses <em>Mudah</em> & Transparan</h2>
+              <p>Empat langkah sederhana untuk mendapatkan kemasan custom impian Anda.</p>
+            </div>
+          </Reveal>
+
+          <div className={styles.processGrid}>
+            {processSteps.map((step, i) => (
+              <Reveal key={i} delay={i * 0.12}>
+                <div className={styles.processCard}>
+                  <span className={styles.processNum}>{step.num}</span>
+                  <div className={styles.processDivider} />
+                  <h3>{step.title}</h3>
+                  <p>{step.desc}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== CUSTOM PACKAGING CTA ===== */}
-      <section className={styles.packagingCta}>
+      {/* ═══════════════════════════════════════════════
+          8. CLIENT TRUST / LOGOS
+          ═══════════════════════════════════════════════ */}
+      <section className={`section section-cream ${styles.clientsSection}`}>
         <div className="container">
-          <ScrollReveal>
-            <div className={styles.packagingCtaContent}>
-              <div className={styles.packagingCtaText}>
-                <span className="subtitle-badge">Custom Packaging Solutions</span>
-                <h2>Brand yang berkembang berinvestasi pada kemasan custom <em>berkualitas.</em></h2>
-                <p>Kami bantu wujudkan visi Anda dengan kemasan yang memperkuat identitas brand dan meningkatkan pengalaman pelanggan.</p>
-                <a
-                  href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-accent"
-                >
-                  Konsultasi Sekarang
-                </a>
-              </div>
+          <Reveal>
+            <div className="section-header">
+              <span className="eyebrow">Dipercaya Oleh</span>
+              <h2>Brand-Brand <em>Terbaik</em></h2>
+              <p>Bergabung dengan ribuan pelaku usaha F&B yang telah mempercayakan kemasannya kepada kami.</p>
             </div>
-          </ScrollReveal>
-        </div>
-      </section>
+          </Reveal>
 
-      {/* ===== FAQ ===== */}
-      <section className={`section section-dark ${styles.faqSection}`}>
-        <div className="container">
-          <ScrollReveal>
-            <div className="section-title">
-              <span className="subtitle-badge">Punya Pertanyaan?</span>
-              <h2>Pertanyaan <em>Umum</em></h2>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={200}>
-            <FAQAccordion items={faqItems} />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ===== VIDEO ===== */}
-      <section className={`section ${styles.videoSection}`}>
-        <div className="container">
-          <ScrollReveal>
-            <div className="section-title">
-              <span className="subtitle-badge">Kenali Kami</span>
-              <h2>Company <em>Profile</em></h2>
-              <p>Kenali lebih dekat tentang Printwork Indonesia</p>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={200} direction="scale">
-            <div className={styles.videoWrapper}>
-              <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Printwork Indonesia Company Profile"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ===== BLOG ===== */}
-      <section className={`section section-gradient ${styles.blogSection}`}>
-        <div className="container">
-          <ScrollReveal>
-            <div className="section-title">
-              <span className="subtitle-badge">Insight</span>
-              <h2>Posting <em>Terbaru</em></h2>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={100} stagger>
-            <div className={styles.blogGrid}>
-              {blogPosts.map((post) => (
-                <article key={post.title} className={styles.blogCard}>
-                  <div className={styles.blogImage}>
-                    <Image src={post.image} alt={post.title} fill style={{ objectFit: 'cover' }} />
-                  </div>
-                  <div className={styles.blogContent}>
-                    <span className={styles.blogCat}>{post.cat}</span>
-                    <h3>{post.title}</h3>
-                    <span className={styles.blogDate}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                      {post.date}
-                    </span>
-                  </div>
-                </article>
+          <Reveal>
+            <div className={styles.clientsGrid}>
+              {clients.map((src, i) => (
+                <div key={i} className={styles.clientLogo}>
+                  <Image
+                    src={src}
+                    alt={`Client ${i + 1}`}
+                    width={160}
+                    height={80}
+                    className={styles.clientImg}
+                  />
+                </div>
               ))}
             </div>
-          </ScrollReveal>
+          </Reveal>
         </div>
       </section>
 
-      {/* ===== CTA SECTION ===== */}
-      <section className={styles.ctaSection}>
-        <div className="container">
-          <ScrollReveal>
-            <div className={styles.ctaContent}>
-              <span className={styles.ctaBadge}>Hubungi Kami</span>
-              <h2>Siap Membuat Custom <em>Packaging?</em></h2>
-              <p>Mari bekerjasama. Konsultasikan kebutuhan kemasan Anda dengan tim kami secara gratis.</p>
+      {/* ═══════════════════════════════════════════════
+          9. CUSTOM PACKAGING CTA — Atmospheric
+          ═══════════════════════════════════════════════ */}
+      <section className={`${styles.ctaSection}`}>
+        <div className={styles.ctaBg}>
+          <Image
+            src="/printwork/custom-hero-bg.webp"
+            alt=""
+            fill
+            style={{ objectFit: 'cover' }}
+          />
+          <div className={styles.ctaOverlay} />
+        </div>
+        <div className={`container ${styles.ctaContent}`}>
+          <Reveal>
+            <span className="eyebrow">Custom Packaging</span>
+            <h2>Siap Wujudkan <em>Kemasan Impian</em> Anda?</h2>
+            <p>
+              Konsultasi gratis dengan tim kami untuk mendapatkan solusi kemasan custom
+              yang tepat untuk bisnis Anda. Mulai dari desain hingga pengiriman, kami siap membantu.
+            </p>
+            <div className={styles.ctaButtons}>
               <a
                 href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-whatsapp"
-                style={{ fontSize: '14px', padding: '18px 42px' }}
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-                Konsultasikan Sekarang
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                Chat WhatsApp
               </a>
+              <Link href="/kontak" className="btn btn-ghost">
+                Form Kontak
+              </Link>
             </div>
-          </ScrollReveal>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════
+          10. FAQ
+          ═══════════════════════════════════════════════ */}
+      <section className={`section section-dark ${styles.faqSection}`}>
+        <div className="container">
+          <Reveal>
+            <div className="section-header">
+              <span className="eyebrow">FAQ</span>
+              <h2>Pertanyaan <em>Umum</em></h2>
+            </div>
+          </Reveal>
+          <Reveal>
+            <FAQAccordion items={faqItems} />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════
+          11. VIDEO — Cinematic Placeholder
+          ═══════════════════════════════════════════════ */}
+      <section className={`section ${styles.videoSection}`}>
+        <div className="container">
+          <Reveal>
+            <div className="section-header">
+              <span className="eyebrow">Company Profile</span>
+              <h2>Lihat <em>Proses</em> Kami</h2>
+            </div>
+          </Reveal>
+          <Reveal direction="scale">
+            <div className={styles.videoWrap}>
+              <Image
+                src="/printwork/pdf_image_401.jpeg"
+                alt="Printwork Indonesia Manufacturing Process"
+                width={1200}
+                height={675}
+                className={styles.videoThumb}
+              />
+              <div className={styles.videoOverlay}>
+                <button className={styles.playBtn} aria-label="Play Video">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+                <span className={styles.playLabel}>Company Profile</span>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════
+          12. BLOG PREVIEW
+          ═══════════════════════════════════════════════ */}
+      <section className={`section section-cream ${styles.blogSection}`}>
+        <div className="container">
+          <Reveal>
+            <div className="section-header">
+              <span className="eyebrow">Insights</span>
+              <h2>Artikel <em>Terbaru</em></h2>
+              <p>Tips, panduan, dan insight seputar dunia kemasan dan industri F&B.</p>
+            </div>
+          </Reveal>
+
+          <div className={styles.blogGrid}>
+            {blogPosts.map((post, i) => (
+              <Reveal key={i} delay={i * 0.1}>
+                <Link href="/blog" className={styles.blogCard}>
+                  <div className={styles.blogImageWrap}>
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      width={400}
+                      height={260}
+                      className={styles.blogImage}
+                    />
+                  </div>
+                  <div className={styles.blogContent}>
+                    <span className={styles.blogDate}>{post.date}</span>
+                    <h3 className={styles.blogTitle}>{post.title}</h3>
+                    <p className={styles.blogExcerpt}>{post.excerpt}</p>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════
+          13. FINAL CTA
+          ═══════════════════════════════════════════════ */}
+      <section className={`section-dark ${styles.finalCta}`}>
+        <div className="container">
+          <Reveal>
+            <div className={styles.finalCtaContent}>
+              <span className="eyebrow">Mulai Sekarang</span>
+              <h2>Tingkatkan <em>Brand</em> Anda dengan Kemasan Premium</h2>
+              <p>
+                Jadilah bagian dari ribuan pelaku usaha yang telah meningkatkan
+                identitas brand mereka bersama Printwork Indonesia.
+              </p>
+              <div className={styles.finalCtaBtns}>
+                <a
+                  href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-gold"
+                >
+                  Konsultasi Gratis
+                </a>
+                <Link href="/produk" className="btn btn-ghost">
+                  Lihat Katalog
+                </Link>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

@@ -21,43 +21,27 @@ const productLinks = [
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      {/* Top CTA Bar */}
-      <div className={styles.topBar}>
-        <div className="container">
-          <div className={styles.topBarContent}>
-            <div>
-              <h3>Siap membuat kemasan impian Anda?</h3>
-              <p>Konsultasikan kebutuhan packaging bisnis Anda dengan tim kami</p>
-            </div>
-            <a
-              href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.topBarCta}
-            >
-              Konsultasi Gratis
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer */}
       <div className={styles.main}>
         <div className="container">
           <div className={styles.grid}>
-            {/* Brand */}
+            {/* Brand Column */}
             <div className={styles.brand}>
               <Image
                 src="/printwork/new_logo.png"
                 alt="Printwork Indonesia"
                 width={140}
                 height={38}
-                className={styles.logoImage}
+                className={styles.logoImg}
               />
               <p>
-                PT Printwork Indonesia adalah perusahaan spesialis kemasan makanan custom 
+                PT Printwork Indonesia adalah perusahaan spesialis kemasan makanan custom
                 yang telah melayani ribuan pelaku usaha F&B di seluruh Indonesia sejak 2012.
               </p>
+              <div className={styles.certBadges}>
+                <span className={styles.certBadge}>ISO 9001:2015</span>
+                <span className={styles.certBadge}>FSSC 22000</span>
+              </div>
               <div className={styles.socialIcons}>
                 <a href="https://wa.me/6281113000966" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
@@ -117,7 +101,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom */}
+      {/* Bottom Bar */}
       <div className={styles.bottom}>
         <div className="container">
           <div className={styles.bottomContent}>

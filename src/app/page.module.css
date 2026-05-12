@@ -266,6 +266,15 @@
 
 .processSection {
   background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.processBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .processGrid {
@@ -585,6 +594,7 @@
    ═══════════════════════════════════════════════ */
 
 .finalCta {
+  position: relative;
   padding: clamp(80px, 12vw, 140px) 0;
   background: linear-gradient(
     135deg,
@@ -593,6 +603,14 @@
     var(--dark-bg) 100%
   );
   text-align: center;
+  overflow: hidden;
+}
+
+.finalCtaBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .finalCtaContent {
@@ -621,6 +639,151 @@
 }
 
 /* ═══════════════════════════════════════════════
+   6.5 SERVICES — Editorial Grid
+   ═══════════════════════════════════════════════ */
+
+.servicesSection {
+  background: var(--cream);
+  overflow: hidden;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.servicesGrid > div:nth-child(4) {
+  grid-column: 1 / 2;
+}
+
+.servicesGrid > div:nth-child(5) {
+  grid-column: 2 / 4;
+}
+
+.serviceCard {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--sand);
+  transition: all 0.5s var(--ease-out);
+  height: 100%;
+}
+
+.serviceCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(var(--gold-rgb), 0.2);
+}
+
+.serviceImageWrap {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+.serviceImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.serviceCard:hover .serviceImage {
+  transform: scale(1.06);
+}
+
+.serviceImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(10, 11, 15, 0.15) 100%);
+}
+
+.serviceInfo {
+  padding: clamp(20px, 2.5vw, 28px);
+}
+
+.serviceInfo h3 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+
+.serviceInfo p {
+  font-size: 14px;
+  color: var(--ash);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════════
+   6.75 INDUSTRY — Cards
+   ═══════════════════════════════════════════════ */
+
+.industrySection {
+  overflow: hidden;
+}
+
+.industryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.industryCard {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+}
+
+.industryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.industryCard:hover .industryImage {
+  transform: scale(1.08);
+}
+
+.industryOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(10, 11, 15, 0.85) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(20px, 3vw, 32px);
+  transition: background 0.4s;
+}
+
+.industryCard:hover .industryOverlay {
+  background: linear-gradient(180deg, transparent 20%, rgba(13, 27, 62, 0.9) 100%);
+}
+
+.industryOverlay h3 {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.industryOverlay p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════
    RESPONSIVE — Mobile-first luxury
    ═══════════════════════════════════════════════ */
 
@@ -643,6 +806,18 @@
   }
 
   .blogGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .servicesGrid > div:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .industryGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -688,6 +863,14 @@
 
 @media (max-width: 480px) {
   .productsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .industryGrid {
     grid-template-columns: 1fr;
   }
 

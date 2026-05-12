@@ -7,6 +7,7 @@ import styles from './page.module.css';
 import Reveal, { RevealChild } from '@/components/RevealAnimation';
 import MarqueeStrip from '@/components/MarqueeStrip';
 import CounterAnimation from '@/components/CounterAnimation';
+import MagneticButton from '@/components/MagneticButton';
 
 /* Dynamic imports for performance */
 const CinematicHero = dynamic(() => import('@/components/CinematicHero'), { ssr: false });
@@ -22,12 +23,15 @@ const stats = [
 ];
 
 const products = [
-  { name: 'Lunch Box', image: '/printwork/lunchbox-ek-jumbo-1.webp', tag: 'Food Grade' },
-  { name: 'Standing Pouch', image: '/printwork/standing-pouch-paper-metalized-1.webp', tag: 'Custom Print' },
-  { name: 'Kantong Kertas', image: '/printwork/paperbag-m-1.webp', tag: 'Eco-Kraft' },
-  { name: 'Dus Kentang', image: '/printwork/dus_kentang.webp', tag: 'F&B' },
-  { name: 'Fried Chicken Box', image: '/printwork/fc-box-l-1.webp', tag: 'Premium' },
-  { name: 'Food Pail', image: '/printwork/food-pail-m-1.webp', tag: 'Premium' },
+  { name: 'Lunch Box', image: '/printwork/products/lunch box food grade.webp', tag: 'Food Grade' },
+  { name: 'Standing Pouch', image: '/printwork/products/standing pouch paper metalized.webp', tag: 'Custom Print' },
+  { name: 'Burger Box', image: '/printwork/products/burger box eco-kraft.webp', tag: 'Eco-Kraft' },
+  { name: 'Dus Kentang', image: '/printwork/products/dus kentang goreng 1.webp', tag: 'F&B' },
+  { name: 'Fried Chicken Box', image: '/printwork/products/dus fried chicken duplex 310 gr.webp', tag: 'Premium' },
+  { name: 'Food Pail', image: '/printwork/products/food pail food grade.webp', tag: 'Premium' },
+  { name: 'Food Tray', image: '/printwork/products/food tray eco kraft.webp', tag: 'Eco-Kraft' },
+  { name: 'Dus Martabak', image: '/printwork/products/dus martabak food grade.webp', tag: 'Food Grade' },
+  { name: 'Lunch Box XL', image: '/printwork/products/lunch box food grade xl jumbo.webp', tag: 'Jumbo' },
 ];
 
 const benefits = [
@@ -60,12 +64,21 @@ const processSteps = [
   { num: '04', title: 'Pengiriman', desc: 'Pengiriman aman ke seluruh Indonesia dengan packaging protektif.' },
 ];
 
+const services = [
+  { title: 'Desain Kreatif', desc: 'Tim desainer berpengalaman mewujudkan identitas brand Anda ke dalam kemasan yang memukau.', image: '/printwork/services/service_design.png' },
+  { title: 'Cetak Premium', desc: 'Teknologi cetak offset & digital modern untuk kualitas warna dan detail terbaik.', image: '/printwork/services/service_printing.png' },
+  { title: 'Manufaktur', desc: 'Fasilitas produksi berstandar internasional dengan kapasitas besar dan konsisten.', image: '/printwork/services/service_manufacturing.png' },
+  { title: 'Packaging Solutions', desc: 'Solusi kemasan end-to-end dari material hingga finishing premium.', image: '/printwork/services/service_packaging.png' },
+  { title: 'Distribusi', desc: 'Jaringan pengiriman luas ke seluruh Indonesia dengan packaging protektif.', image: '/printwork/services/service_distribution.png' },
+];
+
 const clients = [
-  '/printwork/sponsor1.png',
-  '/printwork/sponsor2.png',
-  '/printwork/sponsor3.png',
-  '/printwork/sponsor4.png',
-  '/printwork/sponsor5.png',
+  '/printwork/sponsors/Astra_International-Logo.wine.png',
+  '/printwork/sponsors/jotun-official.png',
+  '/printwork/sponsors/Picsart_26-03-03_15-53-02-265.png',
+  '/printwork/sponsors/Picsart_26-03-03_15-53-12-322.png',
+  '/printwork/sponsors/Picsart_26-03-03_15-53-22-748.png',
+  '/printwork/sponsors/Picsart_26-03-03_15-53-35-268.png',
 ];
 
 const faqItems = [
@@ -94,22 +107,28 @@ const faqItems = [
 const blogPosts = [
   {
     title: 'Tren Kemasan Makanan 2025: Sustainable & Premium',
-    image: '/printwork/pdf_image_316.jpeg',
+    image: '/printwork/editorial/pdf_image_325.jpeg',
     date: '12 Jan 2025',
     excerpt: 'Pelajari tren terbaru dalam industri kemasan makanan yang mengutamakan keberlanjutan.',
   },
   {
     title: 'Cara Memilih Material Kemasan yang Tepat',
-    image: '/printwork/pdf_image_401.jpeg',
+    image: '/printwork/editorial/pdf_image_408.jpeg',
     date: '28 Dec 2024',
     excerpt: 'Panduan lengkap memilih material kemasan berdasarkan jenis produk makanan Anda.',
   },
   {
     title: 'Pentingnya Branding pada Kemasan Produk F&B',
-    image: '/printwork/pdf_image_424.jpeg',
+    image: '/printwork/editorial/pdf_image_424.jpeg',
     date: '15 Nov 2024',
     excerpt: 'Kemasan adalah touchpoint pertama dengan konsumen. Maksimalkan impact brand Anda.',
   },
+];
+
+const industries = [
+  { title: 'Food Service', image: '/printwork/industry/food-service-card.jpg', desc: 'Restoran, kafe, dan katering' },
+  { title: 'Food Processing', image: '/printwork/industry/food-processing-card.jpg', desc: 'Industri pengolahan makanan' },
+  { title: 'Agriculture', image: '/printwork/industry/agriculture-card.jpg', desc: 'Agrikultur dan perkebunan' },
 ];
 
 export default function HomePage() {
@@ -154,7 +173,7 @@ export default function HomePage() {
             <Reveal direction="left" className={styles.aboutVisual}>
               <div className={styles.aboutImageWrap}>
                 <Image
-                  src="/printwork/pdf_image_316.jpeg"
+                  src="/printwork/backgrounds/about-printwork.png"
                   alt="Printwork Manufacturing"
                   width={560}
                   height={400}
@@ -188,12 +207,16 @@ export default function HomePage() {
                 ))}
               </div>
               <div className={styles.aboutCtas}>
-                <Link href="/kontak" className="btn btn-primary">
-                  Hubungi Kami
-                </Link>
-                <Link href="/sertifikat" className="btn btn-outline">
-                  Lihat Sertifikasi
-                </Link>
+                <MagneticButton>
+                  <Link href="/kontak" className="btn btn-primary">
+                    Hubungi Kami
+                  </Link>
+                </MagneticButton>
+                <MagneticButton>
+                  <Link href="/sertifikat" className="btn btn-outline">
+                    Lihat Sertifikasi
+                  </Link>
+                </MagneticButton>
               </div>
             </Reveal>
           </div>
@@ -270,9 +293,70 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════
+          6.5 SERVICES — Premium Editorial Grid
+          ═══════════════════════════════════════════════ */}
+      <section className={`section ${styles.servicesSection}`}>
+        <div className="container">
+          <Reveal>
+            <div className="section-header">
+              <span className="eyebrow">Layanan Kami</span>
+              <h2>Solusi Kemasan <em>End-to-End</em></h2>
+              <p>Dari konsep hingga pengiriman, kami menangani setiap tahap dengan standar premium.</p>
+            </div>
+          </Reveal>
+          <div className={styles.servicesGrid}>
+            {services.map((svc, i) => (
+              <Reveal key={i} delay={i * 0.1}>
+                <div className={styles.serviceCard}>
+                  <div className={styles.serviceImageWrap}>
+                    <Image src={svc.image} alt={svc.title} width={600} height={400} className={styles.serviceImage} />
+                    <div className={styles.serviceImageOverlay} />
+                  </div>
+                  <div className={styles.serviceInfo}>
+                    <h3>{svc.title}</h3>
+                    <p>{svc.desc}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════
+          6.75 INDUSTRY — Who We Serve
+          ═══════════════════════════════════════════════ */}
+      <section className={`section section-dark ${styles.industrySection}`}>
+        <div className="container">
+          <Reveal>
+            <div className="section-header">
+              <span className="eyebrow">Industri</span>
+              <h2>Siapa yang Kami <em>Layani</em></h2>
+            </div>
+          </Reveal>
+          <div className={styles.industryGrid}>
+            {industries.map((ind, i) => (
+              <Reveal key={i} delay={i * 0.12}>
+                <div className={styles.industryCard}>
+                  <Image src={ind.image} alt={ind.title} width={400} height={300} className={styles.industryImage} />
+                  <div className={styles.industryOverlay}>
+                    <h3>{ind.title}</h3>
+                    <p>{ind.desc}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════
           7. ORDER PROCESS
           ═══════════════════════════════════════════════ */}
       <section className={`section ${styles.processSection}`}>
+        <div className={styles.processBg}>
+          <Image src="/printwork/textures/abstract_light_bg.png" alt="" fill style={{ objectFit: 'cover', opacity: 0.08 }} />
+        </div>
         <div className="container">
           <Reveal>
             <div className="section-header">
@@ -334,10 +418,10 @@ export default function HomePage() {
       <section className={`${styles.ctaSection}`}>
         <div className={styles.ctaBg}>
           <Image
-            src="/printwork/custom-hero-bg.webp"
+            src="/printwork/backgrounds/premium_bg.png"
             alt=""
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: 'cover', opacity: 0.6 }}
           />
           <div className={styles.ctaOverlay} />
         </div>
@@ -350,18 +434,22 @@ export default function HomePage() {
               yang tepat untuk bisnis Anda. Mulai dari desain hingga pengiriman, kami siap membantu.
             </p>
             <div className={styles.ctaButtons}>
-              <a
-                href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-whatsapp"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-                Chat WhatsApp
-              </a>
-              <Link href="/kontak" className="btn btn-ghost">
-                Form Kontak
-              </Link>
+              <MagneticButton>
+                <a
+                  href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-whatsapp"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                  Chat WhatsApp
+                </a>
+              </MagneticButton>
+              <MagneticButton>
+                <Link href="/kontak" className="btn btn-ghost">
+                  Form Kontak
+                </Link>
+              </MagneticButton>
             </div>
           </Reveal>
         </div>
@@ -398,7 +486,7 @@ export default function HomePage() {
           <Reveal direction="scale">
             <div className={styles.videoWrap}>
               <Image
-                src="/printwork/pdf_image_401.jpeg"
+                src="/printwork/backgrounds/approach_vision.png"
                 alt="Printwork Indonesia Manufacturing Process"
                 width={1200}
                 height={675}
@@ -459,6 +547,14 @@ export default function HomePage() {
           13. FINAL CTA
           ═══════════════════════════════════════════════ */}
       <section className={`section-dark ${styles.finalCta}`}>
+        <div className={styles.finalCtaBg}>
+          <Image
+            src="/printwork/textures/abstract_premium_bg.png"
+            alt=""
+            fill
+            style={{ objectFit: 'cover', opacity: 0.12 }}
+          />
+        </div>
         <div className="container">
           <Reveal>
             <div className={styles.finalCtaContent}>
@@ -469,17 +565,21 @@ export default function HomePage() {
                 identitas brand mereka bersama Printwork Indonesia.
               </p>
               <div className={styles.finalCtaBtns}>
-                <a
-                  href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-gold"
-                >
-                  Konsultasi Gratis
-                </a>
-                <Link href="/produk" className="btn btn-ghost">
-                  Lihat Katalog
-                </Link>
+                <MagneticButton>
+                  <a
+                    href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-gold"
+                  >
+                    Konsultasi Gratis
+                  </a>
+                </MagneticButton>
+                <MagneticButton>
+                  <Link href="/produk" className="btn btn-ghost">
+                    Lihat Katalog
+                  </Link>
+                </MagneticButton>
               </div>
             </div>
           </Reveal>

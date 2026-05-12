@@ -16,14 +16,18 @@ const categories = [
 ];
 
 const products = [
-  { name: 'Lunch Box & Pail', tag: 'Food Grade', cat: 'fnb', desc: 'Kemasan makanan dengan bahan food grade berkualitas tinggi.', image: '/printwork/lunchbox-ek-jumbo-1.webp' },
-  { name: 'Dus Nasi & Martabak', tag: 'Custom', cat: 'fnb', desc: 'Kemasan nasi dan martabak custom sesuai brand Anda.', image: '/printwork/lunchbox-fg-jumbo-1.webp' },
-  { name: 'Dus Fried Chicken', tag: 'Food Grade', cat: 'fnb', desc: 'Kemasan khusus ayam goreng, tahan minyak dan food grade.', image: '/printwork/fc-box-l-1.webp' },
-  { name: 'Kantong Kertas', tag: 'Eco Friendly', cat: 'fnb', desc: 'Paper bag ramah lingkungan untuk berbagai kebutuhan.', image: '/printwork/paperbag-m-1.webp' },
-  { name: 'Packaging & Hard Box', tag: 'Premium', cat: 'premium', desc: 'Kotak kaku premium untuk produk high-end Anda.', image: '/printwork/standing-pouch-paper-metalized-1.webp' },
-  { name: 'Sachet & Standing Pouch', tag: 'Custom', cat: 'premium', desc: 'Pouch fleksibel untuk kopi, bumbu, snack, dan lainnya.', image: '/printwork/sachet-paper-metalized-1.webp' },
-  { name: 'Food Wrapping Paper', tag: 'Food Grade', cat: 'fnb', desc: 'Kertas bungkus makanan food grade bersertifikasi BPOM.', image: '/printwork/gusset-paper-metalized-1.webp' },
-  { name: 'Kemasan Lainnya', tag: 'Custom', cat: 'premium', desc: 'Berbagai jenis packaging custom sesuai kebutuhan bisnis.', image: '/printwork/food-pail-m-1.webp' },
+  { name: 'Lunch Box & Pail', tag: 'Food Grade', cat: 'fnb', desc: 'Kemasan makanan dengan bahan food grade berkualitas tinggi.', image: '/printwork/products/lunch box food grade.webp' },
+  { name: 'Dus Nasi & Martabak', tag: 'Custom', cat: 'fnb', desc: 'Kemasan nasi dan martabak custom sesuai brand Anda.', image: '/printwork/products/dus nasi atasan 1.webp' },
+  { name: 'Dus Fried Chicken', tag: 'Food Grade', cat: 'fnb', desc: 'Kemasan khusus ayam goreng, tahan minyak dan food grade.', image: '/printwork/products/dus fried chicken duplex 310 gr.webp' },
+  { name: 'Kantong Kertas', tag: 'Eco Friendly', cat: 'fnb', desc: 'Paper bag ramah lingkungan untuk berbagai kebutuhan.', image: '/printwork/products/kantong ayam goreng s.webp' },
+  { name: 'Packaging & Hard Box', tag: 'Premium', cat: 'premium', desc: 'Kotak kaku premium untuk produk high-end Anda.', image: '/printwork/products/standing pouch paper metalized.webp' },
+  { name: 'Sachet & Standing Pouch', tag: 'Custom', cat: 'premium', desc: 'Pouch fleksibel untuk kopi, bumbu, snack, dan lainnya.', image: '/printwork/products/sachet paper metalized.webp' },
+  { name: 'Food Wrapping Paper', tag: 'Food Grade', cat: 'fnb', desc: 'Kertas bungkus makanan food grade bersertifikasi BPOM.', image: '/printwork/products/food wrapping paper.jpeg' },
+  { name: 'Burger Box', tag: 'Eco-Kraft', cat: 'fnb', desc: 'Kemasan burger eco-kraft premium untuk brand F&B modern.', image: '/printwork/products/burger box eco-kraft.webp' },
+  { name: 'Food Tray', tag: 'Food Grade', cat: 'fnb', desc: 'Tray makanan food grade cocok untuk nasi dan lauk.', image: '/printwork/products/food tray eco kraft.webp' },
+  { name: 'Dus Kentang Goreng', tag: 'Custom', cat: 'fnb', desc: 'Kemasan fries box custom dengan cetak full color.', image: '/printwork/products/dus kentang goreng 1.webp' },
+  { name: 'Food Pail', tag: 'Premium', cat: 'premium', desc: 'Pail kemasan premium untuk rice bowl dan noodle.', image: '/printwork/products/food pail food grade.webp' },
+  { name: 'Gusset Pouch', tag: 'Custom', cat: 'premium', desc: 'Gusset paper metalized untuk kopi dan snack premium.', image: '/printwork/products/gusset paper metalized.webp' },
 ];
 
 export default function ProdukPage() {

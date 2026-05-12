@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import styles from './CinematicHero.module.css';
+import MagneticButton from './MagneticButton';
 
 const slides = [
   {
-    image: '/printwork/custom-hero-bg.webp',
+    image: '/printwork/backgrounds/approach_vision.png',
     badge: 'Est. 2012 — PT Printwork Indonesia',
     line1: 'Kemasan',
     line2: 'Eksklusif',
@@ -15,7 +16,7 @@ const slides = [
     sub: 'Solusi kemasan custom berkualitas tinggi yang membangun identitas brand Anda di pasar modern.',
   },
   {
-    image: '/printwork/dus_kentang.webp',
+    image: '/printwork/products/burger box eco-kraft.webp',
     badge: 'Food Grade & Eco-Kraft',
     line1: 'Custom',
     line2: 'Packaging',
@@ -23,7 +24,7 @@ const slides = [
     sub: 'Kemasan makanan bersertifikasi ISO 9001:2015 & FSSC 22000 untuk UMKM hingga korporasi.',
   },
   {
-    image: '/printwork/fc-box-l-1.webp',
+    image: '/printwork/products/standing pouch paper metalized.webp',
     badge: 'Premium Packaging Solutions',
     line1: 'Deliver a',
     line2: 'Unique',
@@ -73,6 +74,20 @@ export default function CinematicHero() {
 
   return (
     <section className={styles.hero} aria-label="Hero section">
+      {/* Cinematic Background Video */}
+      <div className={styles.videoWrapper}>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className={styles.videoBg}
+          poster="/printwork/videos/hero_poster.png"
+        >
+          <source src="/printwork/videos/hero_bg_optimized.mp4" type="video/mp4" />
+        </video>
+      </div>
+
       {/* Background Images with Ken Burns */}
       {slides.map((s, i) => (
         <div
@@ -86,7 +101,7 @@ export default function CinematicHero() {
             priority={i === 0}
             quality={90}
             sizes="100vw"
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: 'cover', opacity: 0.4 }}
             className={styles.bgImage}
           />
         </div>
@@ -157,17 +172,21 @@ export default function CinematicHero() {
                 custom={5}
                 variants={textVariants}
               >
-                <a href="/produk" className={`btn btn-white ${styles.ctaBtn}`}>
-                  Lihat Katalog
-                </a>
-                <a
-                  href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`btn btn-ghost ${styles.ctaBtn}`}
-                >
-                  Konsultasi Gratis
-                </a>
+                <MagneticButton>
+                  <a href="/produk" className={`btn btn-white ${styles.ctaBtn}`}>
+                    Lihat Katalog
+                  </a>
+                </MagneticButton>
+                <MagneticButton>
+                  <a
+                    href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`btn btn-ghost ${styles.ctaBtn}`}
+                  >
+                    Konsultasi Gratis
+                  </a>
+                </MagneticButton>
               </motion.div>
             </motion.div>
           </AnimatePresence>

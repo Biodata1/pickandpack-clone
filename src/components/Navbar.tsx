@@ -46,10 +46,10 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className={styles.logo}>
           <Image
-            src="/printwork/new_logo.png"
+            src="/printwork/logos/logo_full.png"
             alt="Printwork Indonesia"
-            width={140}
-            height={38}
+            width={160}
+            height={44}
             className={styles.logoImg}
             priority
           />
@@ -145,10 +145,10 @@ export default function Navbar() {
           >
             <div className={styles.drawerHeader}>
               <Image
-                src="/printwork/new_logo.png"
+                src="/printwork/logos/logo_full.png"
                 alt="Printwork Indonesia"
-                width={120}
-                height={33}
+                width={140}
+                height={38}
               />
               <button onClick={() => setMobileOpen(false)} className={styles.drawerClose}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

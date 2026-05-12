@@ -28,10 +28,10 @@ export default function Footer() {
             {/* Brand Column */}
             <div className={styles.brand}>
               <Image
-                src="/printwork/new_logo.png"
+                src="/printwork/logos/logo_full.png"
                 alt="Printwork Indonesia"
-                width={140}
-                height={38}
+                width={160}
+                height={44}
                 className={styles.logoImg}
               />
               <p>

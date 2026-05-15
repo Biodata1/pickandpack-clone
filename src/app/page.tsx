@@ -23,7 +23,7 @@ const stats = [
 ];
 
 const products = [
-  { name: 'Lunch Box', image: '/printwork/products/lunch box food grade.webp', tag: 'Food Grade' },
+  { name: 'Logo Printwork', image: '/logo_p_black.png', tag: 'Branding' },
   { name: 'Standing Pouch', image: '/printwork/products/standing pouch paper metalized.webp', tag: 'Custom Print' },
   { name: 'Burger Box', image: '/printwork/products/burger box eco-kraft.webp', tag: 'Eco-Kraft' },
   { name: 'Dus Kentang', image: '/printwork/products/dus kentang goreng 1.webp', tag: 'F&B' },
@@ -181,7 +181,7 @@ export default function HomePage() {
                 />
                 <div className={styles.aboutFloatCard}>
                   <span className={styles.floatCardNum}>15+</span>
-                  <span className={styles.floatCardText}>Tahun<br/>Pengalaman</span>
+                  <span className={styles.floatCardText}>Tahun<br />Pengalaman</span>
                 </div>
               </div>
             </Reveal>
@@ -251,7 +251,7 @@ export default function HomePage() {
               <span className="eyebrow">Program Khusus</span>
               <h2>Dukung <em>UMKM</em> Indonesia</h2>
               <p>
-                Printwork Indonesia berkomitmen mendukung pertumbuhan brand lokal melalui 
+                Printwork Indonesia berkomitmen mendukung pertumbuhan brand lokal melalui
                 program packaging khusus UMKM dengan harga kompetitif dan minimal order yang terjangkau.
               </p>
               <ul className={styles.promoPoints}>
@@ -260,10 +260,10 @@ export default function HomePage() {
                 <li>✅ Konsultasi pemilihan material</li>
               </ul>
               <MagneticButton>
-                <a 
-                  href="https://wa.me/6281113000966?text=Halo%20saya%20tertarik%20dengan%20Promo%20UMKM%20Printwork" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://wa.me/6281113000966?text=Halo%20saya%20tertarik%20dengan%20Promo%20UMKM%20Printwork"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn btn-primary"
                 >
                   Ambil Promo Ini
@@ -272,11 +272,11 @@ export default function HomePage() {
             </Reveal>
             <Reveal direction="right" className={styles.promoVisual}>
               <div className={styles.promoImageWrap}>
-                <Image 
-                  src="/printwork/hero/promo_umkm_poster.png" 
-                  alt="Promo UMKM Printwork" 
-                  width={500} 
-                  height={700} 
+                <Image
+                  src="/printwork/hero/promo_umkm_poster.png"
+                  alt="Promo UMKM Printwork"
+                  width={500}
+                  height={700}
                   className={styles.promoImage}
                 />
               </div>
@@ -402,19 +402,19 @@ export default function HomePage() {
           <div className={styles.profilePreviewGrid}>
             <Reveal direction="left" className={styles.profilePreviewImages}>
               <div className={styles.profileImageStack}>
-                <Image 
-                  src="/printwork/company-profile/page_1.png" 
-                  alt="Profile Page 1" 
-                  width={300} 
-                  height={424} 
-                  className={styles.profileImg1} 
+                <Image
+                  src="/printwork/company-profile/page_1.png"
+                  alt="Profile Page 1"
+                  width={300}
+                  height={424}
+                  className={styles.profileImg1}
                 />
-                <Image 
-                  src="/printwork/company-profile/page_2.png" 
-                  alt="Profile Page 2" 
-                  width={300} 
-                  height={424} 
-                  className={styles.profileImg2} 
+                <Image
+                  src="/printwork/company-profile/page_2.png"
+                  alt="Profile Page 2"
+                  width={300}
+                  height={424}
+                  className={styles.profileImg2}
                 />
               </div>
             </Reveal>
@@ -422,7 +422,7 @@ export default function HomePage() {
               <span className="eyebrow">Kapabilitas Kami</span>
               <h2>Eksplorasi <em>Company</em> Profile</h2>
               <p>
-                Pelajari lebih dalam tentang visi, misi, teknologi mesin, dan standar operasional 
+                Pelajari lebih dalam tentang visi, misi, teknologi mesin, dan standar operasional
                 prosedur kami yang memastikan setiap kemasan diproduksi dengan presisi maksimal.
               </p>
               <div className={styles.profilePreviewCtas}>
@@ -529,7 +529,7 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="btn btn-whatsapp"
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /></svg>
                   Chat WhatsApp
                 </a>
               </MagneticButton>

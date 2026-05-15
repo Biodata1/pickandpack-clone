@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       'Solusi kemasan custom berkualitas tinggi yang membangun identitas brand Anda di pasar modern.',
     images: [
       {
-        url: '/printwork/new_logo.png',
+        url: '/logo_p_black.png',
         width: 1200,
         height: 630,
         alt: 'Printwork Indonesia Premium Packaging',
@@ -126,7 +126,7 @@ export default function RootLayout({
               '@type': 'Organization',
               name: 'PT Printwork Indonesia',
               url: 'https://www.printwork.id',
-              logo: 'https://www.printwork.id/printwork/new_logo.png',
+              logo: 'https://www.printwork.id/logo_p_black.png',
               description:
                 'PT Printwork Indonesia - Produsen kemasan eksklusif, food grade, dan solusi custom packaging premium.',
               address: {

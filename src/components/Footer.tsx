@@ -28,7 +28,7 @@ export default function Footer() {
             {/* Brand Column */}
             <div className={styles.brand}>
               <Image
-                src="/logo_p.png"
+                src="/logo_p_black.png"
                 alt="Printwork Indonesia"
                 width={48}
                 height={48}

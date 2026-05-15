@@ -47,7 +47,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className={styles.logo}>
           <Image
-            src="/logo_p.png"
+            src="/logo_p_black.png"
             alt="Printwork Indonesia"
             width={40}
             height={40}
@@ -147,7 +147,7 @@ export default function Navbar() {
           >
             <div className={styles.drawerHeader}>
               <Image
-                src="/logo_p.png"
+                src="/logo_p_black.png"
                 alt="Printwork Indonesia"
                 width={40}
                 height={40}

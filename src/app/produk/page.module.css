@@ -32,12 +32,53 @@
 }
 
 /* ===== Filters ===== */
+.filterWrapper {
+  position: relative;
+  margin-bottom: clamp(40px, 5vw, 56px);
+}
+
 .filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
   justify-content: center;
-  margin-bottom: clamp(40px, 5vw, 56px);
+}
+
+@media (max-width: 768px) {
+  .filterWrapper {
+    margin-left: calc(var(--space-5) * -1);
+    margin-right: calc(var(--space-5) * -1);
+    padding: 0 var(--space-5);
+    overflow: hidden;
+  }
+
+  .filterWrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--white));
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .filters {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    margin-bottom: -15px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 8px;
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .filterBtn {
@@ -159,7 +200,7 @@
 }
 
 .cardBody {
-  padding: clamp(16px, 2vw, 24px);
+  padding: 20px;
 }
 
 .cardBody h3 {

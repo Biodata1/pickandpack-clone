@@ -12,10 +12,11 @@
 }
 
 .scrolled {
-  background: rgba(10, 11, 15, 0.82);
-  backdrop-filter: blur(24px) saturate(1.8);
-  -webkit-backdrop-filter: blur(24px) saturate(1.8);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(10, 11, 15, 0.88);
+  backdrop-filter: blur(28px) saturate(1.8);
+  -webkit-backdrop-filter: blur(28px) saturate(1.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .nav {
@@ -36,9 +37,10 @@
 }
 
 .logoImg {
-  height: 32px;
+  max-height: 36px;
   width: auto;
   transition: opacity 0.3s;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .logoImg:hover {
@@ -261,9 +263,10 @@
 }
 
 .contactValue {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--white);
+  letter-spacing: 0.5px;
 }
 
 .mobileLinks {
@@ -274,12 +277,12 @@
 .mobileLink {
   display: block;
   font-family: var(--font-heading);
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 400;
   color: var(--white);
-  padding: 12px 0;
+  padding: 16px 0;
   border-bottom: 1px solid var(--dark-border);
-  transition: color 0.3s;
+  transition: all 0.3s var(--ease-out);
 }
 
 .mobileLink:hover {

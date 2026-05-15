@@ -242,6 +242,50 @@ export default function HomePage() {
       />
 
       {/* ═══════════════════════════════════════════════
+          5.5 SPECIAL CAMPAIGN — Promo Poster
+          ═══════════════════════════════════════════════ */}
+      <section className={`section ${styles.promoSection}`}>
+        <div className="container">
+          <div className={styles.promoGrid}>
+            <Reveal direction="left" className={styles.promoContent}>
+              <span className="eyebrow">Program Khusus</span>
+              <h2>Dukung <em>UMKM</em> Indonesia</h2>
+              <p>
+                Printwork Indonesia berkomitmen mendukung pertumbuhan brand lokal melalui 
+                program packaging khusus UMKM dengan harga kompetitif dan minimal order yang terjangkau.
+              </p>
+              <ul className={styles.promoPoints}>
+                <li>✅ Minimum order mulai 500 pcs</li>
+                <li>✅ Gratis mockup 3D desain</li>
+                <li>✅ Konsultasi pemilihan material</li>
+              </ul>
+              <MagneticButton>
+                <a 
+                  href="https://wa.me/6281113000966?text=Halo%20saya%20tertarik%20dengan%20Promo%20UMKM%20Printwork" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn btn-primary"
+                >
+                  Ambil Promo Ini
+                </a>
+              </MagneticButton>
+            </Reveal>
+            <Reveal direction="right" className={styles.promoVisual}>
+              <div className={styles.promoImageWrap}>
+                <Image 
+                  src="/printwork/hero/promo_umkm_poster.png" 
+                  alt="Promo UMKM Printwork" 
+                  width={500} 
+                  height={700} 
+                  className={styles.promoImage}
+                />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════
           6. PRODUCT SHOWCASE
           ═══════════════════════════════════════════════ */}
       <section className={`section section-dark ${styles.productsSection}`}>
@@ -346,6 +390,50 @@ export default function HomePage() {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════
+          6.85 PROFILE PREVIEW — Company Profile Sneak Peek
+          ═══════════════════════════════════════════════ */}
+      <section className={`section ${styles.profilePreviewSection}`}>
+        <div className="container">
+          <div className={styles.profilePreviewGrid}>
+            <Reveal direction="left" className={styles.profilePreviewImages}>
+              <div className={styles.profileImageStack}>
+                <Image 
+                  src="/printwork/company-profile/page_1.png" 
+                  alt="Profile Page 1" 
+                  width={300} 
+                  height={424} 
+                  className={styles.profileImg1} 
+                />
+                <Image 
+                  src="/printwork/company-profile/page_2.png" 
+                  alt="Profile Page 2" 
+                  width={300} 
+                  height={424} 
+                  className={styles.profileImg2} 
+                />
+              </div>
+            </Reveal>
+            <Reveal direction="right" className={styles.profilePreviewContent}>
+              <span className="eyebrow">Kapabilitas Kami</span>
+              <h2>Eksplorasi <em>Company</em> Profile</h2>
+              <p>
+                Pelajari lebih dalam tentang visi, misi, teknologi mesin, dan standar operasional 
+                prosedur kami yang memastikan setiap kemasan diproduksi dengan presisi maksimal.
+              </p>
+              <div className={styles.profilePreviewCtas}>
+                <Link href="/company-profile" className="btn btn-primary">
+                  Lihat Profil Lengkap
+                </Link>
+                <a href="/printwork/logo printwork (1).pdf" download className="btn btn-outline">
+                  Unduh PDF
+                </a>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>

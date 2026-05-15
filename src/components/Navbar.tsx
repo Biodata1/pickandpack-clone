@@ -19,6 +19,7 @@ const navLinks = [
     ],
   },
   { label: 'Portofolio', href: '/portfolio' },
+  { label: 'Profile', href: '/company-profile' },
   { label: 'Sertifikat', href: '/sertifikat' },
   { label: 'Blog', href: '/blog' },
   { label: 'Kontak', href: '/kontak' },
@@ -46,11 +47,12 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className={styles.logo}>
           <Image
-            src="/printwork/logos/logo_full.png"
+            src="/logo_p.png"
             alt="Printwork Indonesia"
-            width={160}
-            height={44}
+            width={40}
+            height={40}
             className={styles.logoImg}
+            style={{ objectFit: 'contain' }}
             priority
           />
         </Link>
@@ -68,7 +70,7 @@ export default function Navbar() {
                 <span className={styles.navLinkText}>{link.label}</span>
                 {link.submenu && (
                   <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className={styles.chevron}>
-                    <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 )}
               </Link>
@@ -145,14 +147,15 @@ export default function Navbar() {
           >
             <div className={styles.drawerHeader}>
               <Image
-                src="/printwork/logos/logo_full.png"
+                src="/logo_p.png"
                 alt="Printwork Indonesia"
-                width={140}
-                height={38}
+                width={40}
+                height={40}
+                style={{ objectFit: 'contain' }}
               />
               <button onClick={() => setMobileOpen(false)} className={styles.drawerClose}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
             </div>

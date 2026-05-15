@@ -16,7 +16,7 @@ interface RevealProps {
 }
 
 const getVariants = (direction: string): Variants => {
-  const distance = 60;
+  const distance = 80;
   const hidden: Record<string, number> = { opacity: 0 };
   const visible: Record<string, number> = { opacity: 1 };
 
@@ -52,7 +52,7 @@ export default function Reveal({
   children,
   direction = 'up',
   delay = 0,
-  duration = 0.7,
+  duration = 0.9,
   threshold = 0.15,
   once = true,
   className = '',
@@ -103,7 +103,7 @@ export function RevealChild({
         visible: { opacity: 1, y: 0 },
       }}
       transition={{
-        duration: 0.6,
+        duration: 0.8,
         ease: [0.16, 1, 0.3, 1],
       }}
       className={className}

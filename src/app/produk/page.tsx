@@ -28,6 +28,11 @@ const products = [
   { name: 'Dus Kentang Goreng', tag: 'Custom', cat: 'fnb', desc: 'Kemasan fries box custom dengan cetak full color.', image: '/printwork/products/dus kentang goreng 1.webp' },
   { name: 'Food Pail', tag: 'Premium', cat: 'premium', desc: 'Pail kemasan premium untuk rice bowl dan noodle.', image: '/printwork/products/food pail food grade.webp' },
   { name: 'Gusset Pouch', tag: 'Custom', cat: 'premium', desc: 'Gusset paper metalized untuk kopi dan snack premium.', image: '/printwork/products/gusset paper metalized.webp' },
+  { name: 'Gift Wrap Paper', tag: 'Non-Food', cat: 'shipping', desc: 'Kertas kado custom premium untuk kebutuhan branding retail.', image: '/printwork/products/gift wrap (non-food).webp' },
+  { name: 'Lunch Box XS', tag: 'Compact', cat: 'fnb', desc: 'Varian kotak makan ukuran kecil, cocok untuk snack box.', image: '/printwork/products/lunch box xs food grade.webp' },
+  { name: 'Paperbag Medium', tag: 'Retail', cat: 'shipping', desc: 'Tas kertas kuat dengan desain elegan untuk belanja.', image: '/printwork/products/paperbag-m-1.webp' },
+  { name: 'Sachet Premium', tag: 'Alu-foil', cat: 'premium', desc: 'Kemasan sachet kedap udara untuk menjaga kesegaran produk.', image: '/printwork/products/sachet-paper-metalized-1.webp' },
+  { name: 'Standing Pouch', tag: 'Ziplock', cat: 'premium', desc: 'Pouch berdiri dengan ziplock untuk kemudahan konsumen.', image: '/printwork/products/standing-pouch-paper-metalized-1.webp' },
 ];
 
 export default function ProdukPage() {
@@ -77,16 +82,18 @@ function ProdukContent() {
       <section className="section">
         <div className="container">
           <Reveal>
-            <div className={styles.filters}>
-              {categories.map((cat) => (
-                <Link
-                  key={cat.id}
-                  href={cat.id === 'all' ? '/produk' : `/produk?cat=${cat.id}`}
-                  className={`${styles.filterBtn} ${activeCat === cat.id ? styles.filterActive : ''}`}
-                >
-                  {cat.label}
-                </Link>
-              ))}
+            <div className={styles.filterWrapper}>
+              <div className={styles.filters}>
+                {categories.map((cat) => (
+                  <Link
+                    key={cat.id}
+                    href={cat.id === 'all' ? '/produk' : `/produk?cat=${cat.id}`}
+                    className={`${styles.filterBtn} ${activeCat === cat.id ? styles.filterActive : ''}`}
+                  >
+                    {cat.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </Reveal>
 

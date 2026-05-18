@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Navbar.module.css';
+import { trackGAEvent } from '../lib/gtag';
 
 const navLinks = [
   { label: 'Beranda', href: '/' },
@@ -99,12 +100,13 @@ export default function Navbar() {
 
         {/* CTA */}
         <a
-          href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
+          href="https://wa.me/6285777237523?text=Halo%20Printwork,%20saya%20ingin%20bertanya%20tentang%20kemasan%20custom."
           target="_blank"
           rel="noopener noreferrer"
           className={styles.ctaBtn}
+          onClick={() => trackGAEvent('wa_cta_click', { source: 'navbar_desktop' })}
         >
-          Konsultasi
+          Hubungi Kami
         </a>
 
         {/* Mobile Toggle */}
@@ -163,11 +165,11 @@ export default function Navbar() {
             <div className={styles.drawerContact}>
               <div>
                 <span className={styles.contactLabel}>Telepon</span>
-                <a href="tel:+6281113000966" className={styles.contactValue}>0811-1300-0966</a>
+                <a href="tel:+6285777237523" className={styles.contactValue}>+62 857-7723-7523</a>
               </div>
               <div>
                 <span className={styles.contactLabel}>Email</span>
-                <a href="mailto:info@printwork.id" className={styles.contactValue}>info@printwork.id</a>
+                <a href="mailto:printworkmultigraph@gmail.com" className={styles.contactValue}>printworkmultigraph@gmail.com</a>
               </div>
             </div>
 
@@ -203,13 +205,14 @@ export default function Navbar() {
 
             <div className={styles.drawerCta}>
               <a
-                href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
+                href="https://wa.me/6285777237523?text=Halo%20Printwork,%20saya%20ingin%20bertanya%20tentang%20kemasan%20custom."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-whatsapp"
                 style={{ width: '100%', justifyContent: 'center' }}
+                onClick={() => trackGAEvent('wa_cta_click', { source: 'navbar_mobile' })}
               >
-                Konsultasi via WhatsApp
+                Hubungi Kami via WhatsApp
               </a>
             </div>
           </motion.div>

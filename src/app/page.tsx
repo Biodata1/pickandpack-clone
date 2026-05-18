@@ -8,9 +8,9 @@ import Reveal, { RevealChild } from '@/components/RevealAnimation';
 import MarqueeStrip from '@/components/MarqueeStrip';
 import CounterAnimation from '@/components/CounterAnimation';
 import MagneticButton from '@/components/MagneticButton';
+import CinematicHero from '@/components/CinematicHero';
 
-/* Dynamic imports for performance */
-const CinematicHero = dynamic(() => import('@/components/CinematicHero'), { ssr: false });
+/* Dynamic imports for below-fold components */
 const FAQAccordion = dynamic(() => import('@/components/FAQAccordion'));
 
 /* ── Data ── */
@@ -23,7 +23,6 @@ const stats = [
 ];
 
 const products = [
-  { name: 'Logo Printwork', image: '/logo_p_black.png', tag: 'Branding' },
   { name: 'Standing Pouch', image: '/printwork/products/standing pouch paper metalized.webp', tag: 'Custom Print' },
   { name: 'Burger Box', image: '/printwork/products/burger box eco-kraft.webp', tag: 'Eco-Kraft' },
   { name: 'Dus Kentang', image: '/printwork/products/dus kentang goreng 1.webp', tag: 'F&B' },
@@ -36,29 +35,29 @@ const products = [
 
 const benefits = [
   {
-    icon: '🛡️',
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
     title: 'Food Grade Certified',
     desc: 'Material bersertifikasi FSSC 22000, aman untuk kontak langsung dengan makanan.',
   },
   {
-    icon: '🎨',
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>',
     title: 'Full Custom Design',
     desc: 'Desain bebas sesuai identitas brand, didukung tim desainer profesional.',
   },
   {
-    icon: '⚡',
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
     title: 'Produksi Cepat',
     desc: 'Proses produksi efisien dengan kapasitas besar dan timeline terjamin.',
   },
   {
-    icon: '📦',
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>',
     title: 'MOQ Terjangkau',
     desc: 'Minimum order mulai dari 500 pcs, cocok untuk UMKM hingga korporasi.',
   },
 ];
 
 const processSteps = [
-  { num: '01', title: 'Konsultasi', desc: 'Diskusi kebutuhan kemasan via WhatsApp, email, atau meeting.' },
+  { num: '01', title: 'Hubungi Kami', desc: 'Diskusi kebutuhan kemasan via WhatsApp, email, atau meeting.' },
   { num: '02', title: 'Desain', desc: 'Tim desainer membuat mockup kemasan sesuai branding Anda.' },
   { num: '03', title: 'Produksi', desc: 'Proses cetak premium dengan kontrol kualitas ketat di setiap tahap.' },
   { num: '04', title: 'Pengiriman', desc: 'Pengiriman aman ke seluruh Indonesia dengan packaging protektif.' },
@@ -108,19 +107,19 @@ const blogPosts = [
   {
     title: 'Tren Kemasan Makanan 2025: Sustainable & Premium',
     image: '/printwork/editorial/pdf_image_325.jpeg',
-    date: '12 Jan 2025',
+    date: '14 Apr 2026',
     excerpt: 'Pelajari tren terbaru dalam industri kemasan makanan yang mengutamakan keberlanjutan.',
   },
   {
     title: 'Cara Memilih Material Kemasan yang Tepat',
     image: '/printwork/editorial/pdf_image_408.jpeg',
-    date: '28 Dec 2024',
+    date: '28 Mar 2026',
     excerpt: 'Panduan lengkap memilih material kemasan berdasarkan jenis produk makanan Anda.',
   },
   {
     title: 'Pentingnya Branding pada Kemasan Produk F&B',
     image: '/printwork/editorial/pdf_image_424.jpeg',
-    date: '15 Nov 2024',
+    date: '10 Feb 2026',
     excerpt: 'Kemasan adalah touchpoint pertama dengan konsumen. Maksimalkan impact brand Anda.',
   },
 ];
@@ -198,7 +197,7 @@ export default function HomePage() {
               <div className={styles.aboutFeatures}>
                 {benefits.map((b, i) => (
                   <div key={i} className={styles.aboutFeatureItem}>
-                    <span className={styles.featureIcon}>{b.icon}</span>
+                    <span className={styles.featureIcon} dangerouslySetInnerHTML={{ __html: b.icon }} />
                     <div>
                       <strong>{b.title}</strong>
                       <p>{b.desc}</p>
@@ -255,13 +254,13 @@ export default function HomePage() {
                 program packaging khusus UMKM dengan harga kompetitif dan minimal order yang terjangkau.
               </p>
               <ul className={styles.promoPoints}>
-                <li>✅ Minimum order mulai 500 pcs</li>
-                <li>✅ Gratis mockup 3D desain</li>
-                <li>✅ Konsultasi pemilihan material</li>
+                <li>Minimum order mulai 500 pcs</li>
+                <li>Gratis mockup 3D desain</li>
+                <li>Diskusi pemilihan material</li>
               </ul>
               <MagneticButton>
                 <a
-                  href="https://wa.me/6281113000966?text=Halo%20saya%20tertarik%20dengan%20Promo%20UMKM%20Printwork"
+                  href="https://wa.me/6285777237523?text=Halo%20saya%20tertarik%20dengan%20Promo%20UMKM%20Printwork"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"
@@ -429,9 +428,6 @@ export default function HomePage() {
                 <Link href="/company-profile" className="btn btn-primary">
                   Lihat Profil Lengkap
                 </Link>
-                <a href="/printwork/logo printwork (1).pdf" download className="btn btn-outline">
-                  Unduh PDF
-                </a>
               </div>
             </Reveal>
           </div>
@@ -518,13 +514,13 @@ export default function HomePage() {
             <span className="eyebrow">Custom Packaging</span>
             <h2>Siap Wujudkan <em>Kemasan Impian</em> Anda?</h2>
             <p>
-              Konsultasi gratis dengan tim kami untuk mendapatkan solusi kemasan custom
+              Hubungi kami sekarang untuk mendapatkan solusi kemasan custom
               yang tepat untuk bisnis Anda. Mulai dari desain hingga pengiriman, kami siap membantu.
             </p>
             <div className={styles.ctaButtons}>
               <MagneticButton>
                 <a
-                  href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
+                  href="https://wa.me/6285777237523?text=Halo%20Printwork,%20saya%20ingin%20bertanya%20tentang%20kemasan%20custom."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-whatsapp"
@@ -580,14 +576,6 @@ export default function HomePage() {
                 height={675}
                 className={styles.videoThumb}
               />
-              <div className={styles.videoOverlay}>
-                <button className={styles.playBtn} aria-label="Play Video">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
-                    <polygon points="5,3 19,12 5,21" />
-                  </svg>
-                </button>
-                <span className={styles.playLabel}>Company Profile</span>
-              </div>
             </div>
           </Reveal>
         </div>
@@ -655,7 +643,7 @@ export default function HomePage() {
               <div className={styles.finalCtaBtns}>
                 <MagneticButton>
                   <a
-                    href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
+                    href="https://wa.me/6285777237523?text=Halo%20Printwork,%20saya%20ingin%20memesan%20kemasan%20custom."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-gold"

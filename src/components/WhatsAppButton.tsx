@@ -2,15 +2,17 @@
 
 import { motion } from 'framer-motion';
 import styles from './WhatsAppButton.module.css';
+import { trackGAEvent } from '../lib/gtag';
 
 export default function WhatsAppButton() {
   return (
     <motion.a
-      href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
+      href="https://wa.me/6285777237523?text=Halo%20Printwork,%20saya%20ingin%20bertanya%20tentang%20kemasan%20custom."
       target="_blank"
       rel="noopener noreferrer"
       className={styles.waBtn}
       aria-label="Chat via WhatsApp"
+      onClick={() => trackGAEvent('wa_cta_click', { source: 'floating_button' })}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}

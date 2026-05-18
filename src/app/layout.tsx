@@ -105,7 +105,7 @@ export default function RootLayout({
 
         {/* Google Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-1FJCK98NLN"
+          src="https://www.googletagmanager.com/gtag/js?id=G-Q0YJ0TH3B1"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -113,7 +113,9 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-1FJCK98NLN');
+            gtag('config', 'G-Q0YJ0TH3B1', {
+              page_path: window.location.pathname,
+            });
           `}
         </Script>
 
@@ -131,12 +133,15 @@ export default function RootLayout({
                 'PT Printwork Indonesia - Produsen kemasan eksklusif, food grade, dan solusi custom packaging premium.',
               address: {
                 '@type': 'PostalAddress',
-                addressLocality: 'Tangerang Selatan',
+                streetAddress: 'Jl. Kalibaru Timur Dalam No.1 no 30, RT.6/RW.6, Poncol, Bungur, Kec. Senen',
+                addressLocality: 'Jakarta Pusat',
+                addressRegion: 'DKI Jakarta',
+                postalCode: '10460',
                 addressCountry: 'ID',
               },
               contactPoint: {
                 '@type': 'ContactPoint',
-                telephone: '+6281113000966',
+                telephone: '+6285777237523',
                 contactType: 'customer service',
               },
               sameAs: ['https://instagram.com/printwork.id'],

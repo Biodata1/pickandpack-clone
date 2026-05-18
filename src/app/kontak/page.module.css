@@ -173,6 +173,30 @@
   min-height: 120px;
 }
 
+/* ===== Success State ===== */
+.successMessage {
+  text-align: center;
+  padding: clamp(32px, 4vw, 48px) 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.successMessage h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.successMessage p {
+  font-size: 14px;
+  color: var(--dark-muted);
+  line-height: 1.7;
+  max-width: 300px;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 1024px) {
   .contactGrid { grid-template-columns: 1fr; }

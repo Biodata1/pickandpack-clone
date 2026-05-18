@@ -105,7 +105,7 @@ function ProdukContent() {
                     <Image src={p.image} alt={p.name} fill style={{ objectFit: 'cover' }} />
                     <div className={styles.cardOverlay}>
                       <a
-                        href={`https://wa.me/6281113000966?text=Halo,%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(p.name)}`}
+                        href={`https://wa.me/6285777237523?text=Halo,%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(p.name)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.overlayBtn}
@@ -119,13 +119,13 @@ function ProdukContent() {
                     <h3>{p.name}</h3>
                     <p>{p.desc}</p>
                     <a
-                      href={`https://wa.me/6281113000966?text=Halo,%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(p.name)}`}
+                      href={`https://wa.me/6285777237523?text=Halo,%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(p.name)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.cardLink}
                     >
                       Detail klik disini
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" /></svg>
                     </a>
                   </div>
                 </div>

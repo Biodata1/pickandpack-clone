@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import styles from './CinematicHero.module.css';
 import MagneticButton from './MagneticButton';
+import { trackGAEvent } from '../lib/gtag';
 
 const slides = [
   {
@@ -173,16 +174,27 @@ export default function CinematicHero() {
                 variants={textVariants}
               >
                 <MagneticButton>
-                  <a href="/produk" className={`btn btn-white ${styles.ctaBtn}`}>
+                  <a
+                    href="/produk"
+                    className={`btn btn-white ${styles.ctaBtn}`}
+                    onClick={() => {
+                      trackGAEvent('hero_cta_click', { cta_name: 'lihat_katalog', destination: '/produk' });
+                      trackGAEvent('catalog_open', { source: 'hero_cta' });
+                    }}
+                  >
                     Lihat Katalog
                   </a>
                 </MagneticButton>
                 <MagneticButton>
                   <a
-                    href="https://wa.me/6281113000966?text=Halo%20Printwork,%20saya%20ingin%20konsultasi%20tentang%20kemasan%20custom."
+                    href="https://wa.me/6285777237523?text=Halo%20Printwork,%20saya%20ingin%20memesan%20kemasan%20custom."
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`btn btn-ghost ${styles.ctaBtn}`}
+                    onClick={() => {
+                      trackGAEvent('hero_cta_click', { cta_name: 'konsultasi_gratis', destination: 'whatsapp' });
+                      trackGAEvent('wa_cta_click', { source: 'hero_consultation' });
+                    }}
                   >
                     Konsultasi Gratis
                   </a>

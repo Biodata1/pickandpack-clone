@@ -41,7 +41,6 @@
   width: auto;
   transition: opacity 0.3s;
   image-rendering: -webkit-optimize-contrast;
-  filter: brightness(0) invert(1);
 }
 
 .logoImg:hover {

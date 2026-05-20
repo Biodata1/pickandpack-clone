@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from 'next';
+import { Suspense } from 'react';
 import { Cormorant_Garamond, Inter, Syne } from 'next/font/google';
 import Script from 'next/script';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import SmoothScroll from '@/components/SmoothScroll';
+import UTMTracker from '@/components/UTMTracker';
 import './globals.css';
 
 /* ── Premium Typography Stack ── */
@@ -171,6 +173,9 @@ export default function RootLayout({
           />
         </noscript>
         <SmoothScroll>
+          <Suspense fallback={null}>
+            <UTMTracker />
+          </Suspense>
           <Navbar />
           <main>{children}</main>
           <Footer />

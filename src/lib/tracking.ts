@@ -24,9 +24,9 @@ export function trackLead(payload: LeadPayload): void {
 
   // Otomatis tangkap UTM params dari URL (misal: ?utm_source=google&utm_medium=cpc)
   const urlParams = new URLSearchParams(window.location.search);
-  const utm_source = urlParams.get('utm_source') || 'organic';
-  const utm_medium = urlParams.get('utm_medium') || 'none';
-  const utm_campaign = urlParams.get('utm_campaign') || '';
+  const utm_source = urlParams.get('utm_source') || sessionStorage.getItem('saved_utm_source') || 'organic';
+  const utm_medium = urlParams.get('utm_medium') || sessionStorage.getItem('saved_utm_medium') || 'none';
+  const utm_campaign = urlParams.get('utm_campaign') || sessionStorage.getItem('saved_utm_campaign') || '';
 
   const finalPayload = {
     ...payload,

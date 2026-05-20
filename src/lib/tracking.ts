@@ -14,7 +14,7 @@ export type LeadPayload = {
   nama: string;
   nomor_wa: string;
   produk: string;
-  tipe_lead: 'form_submit' | 'wa_click';
+  tipe_lead: 'form_submit' | 'wa_click' | 'katalog_click' | 'hero_konsultasi_click';
   path?: string;
 };
 

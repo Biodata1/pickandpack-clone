@@ -329,7 +329,11 @@ export default function HomePage() {
 
           <Reveal>
             <div className={styles.productsCta}>
-              <Link href="/produk" className="btn btn-ghost">
+              <Link
+                href="/produk"
+                className="btn btn-ghost"
+                onClick={() => trackLead({ nama: 'Pengunjung Anonim', nomor_wa: '-', produk: 'Katalog Produk (Showcase)', tipe_lead: 'katalog_click' })}
+              >
                 Lihat Semua Produk
               </Link>
             </div>
@@ -656,7 +660,11 @@ export default function HomePage() {
                   </a>
                 </MagneticButton>
                 <MagneticButton>
-                  <Link href="/produk" className="btn btn-ghost">
+                  <Link
+                    href="/produk"
+                    className="btn btn-ghost"
+                    onClick={() => trackLead({ nama: 'Pengunjung Anonim', nomor_wa: '-', produk: 'Katalog Produk (Final CTA)', tipe_lead: 'katalog_click' })}
+                  >
                     Lihat Katalog
                   </Link>
                 </MagneticButton>

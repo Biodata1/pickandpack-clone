@@ -181,6 +181,7 @@ export default function CinematicHero() {
                     onClick={() => {
                       trackGAEvent('hero_cta_click', { cta_name: 'lihat_katalog', destination: '/produk' });
                       trackGAEvent('catalog_open', { source: 'hero_cta' });
+                      trackLead({ nama: 'Pengunjung Anonim', nomor_wa: '-', produk: 'Katalog Produk (Hero)', tipe_lead: 'katalog_click' });
                     }}
                   >
                     Lihat Katalog
@@ -195,7 +196,7 @@ export default function CinematicHero() {
                     onClick={() => {
                       trackGAEvent('hero_cta_click', { cta_name: 'konsultasi_gratis', destination: 'whatsapp' });
                       trackGAEvent('wa_cta_click', { source: 'hero_consultation' });
-                      trackLead({ nama: 'Pengunjung Anonim', nomor_wa: '-', produk: 'Konsultasi Gratis (Hero)', tipe_lead: 'wa_click' });
+                      trackLead({ nama: 'Pengunjung Anonim', nomor_wa: '-', produk: 'Konsultasi Gratis (Hero)', tipe_lead: 'hero_konsultasi_click' });
                     }}
                   >
                     Konsultasi Gratis

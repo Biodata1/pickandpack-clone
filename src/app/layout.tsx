@@ -34,6 +34,7 @@ const syne = Syne({
 
 /* ── SEO Metadata ── */
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.printwork.id'),
   title: {
     default: 'PT Printwork Indonesia | Premium Custom Packaging Solutions',
     template: '%s | Printwork Indonesia',

@@ -155,7 +155,7 @@ export default function RootLayout({
                 telephone: '+6285777237523',
                 contactType: 'customer service',
               },
-              sameAs: ['https://instagram.com/printwork.id'],
+              sameAs: ['https://www.instagram.com/printwork.idn/'],
             }),
           }}
         />

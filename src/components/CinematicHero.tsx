@@ -6,6 +6,7 @@ import Image from 'next/image';
 import styles from './CinematicHero.module.css';
 import MagneticButton from './MagneticButton';
 import { trackGAEvent } from '../lib/gtag';
+import { trackLead } from '../lib/tracking';
 
 const slides = [
   {
@@ -194,6 +195,7 @@ export default function CinematicHero() {
                     onClick={() => {
                       trackGAEvent('hero_cta_click', { cta_name: 'konsultasi_gratis', destination: 'whatsapp' });
                       trackGAEvent('wa_cta_click', { source: 'hero_consultation' });
+                      trackLead({ nama: 'Pengunjung Anonim', nomor_wa: '-', produk: 'Konsultasi Gratis (Hero)', tipe_lead: 'wa_click' });
                     }}
                   >
                     Konsultasi Gratis

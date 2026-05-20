@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import Reveal from '@/components/RevealAnimation';
 import styles from './page.module.css';
+import { trackLead } from '@/lib/tracking';
 
 const categories = [
   { id: 'all', label: 'Semua Produk' },
@@ -34,6 +35,17 @@ const products = [
   { name: 'Sachet Premium', tag: 'Alu-foil', cat: 'premium', desc: 'Kemasan sachet kedap udara untuk menjaga kesegaran produk.', image: '/printwork/products/sachet-paper-metalized-1.webp' },
   { name: 'Standing Pouch', tag: 'Ziplock', cat: 'premium', desc: 'Pouch berdiri dengan ziplock untuk kemudahan konsumen.', image: '/printwork/products/standing-pouch-paper-metalized-1.webp' },
 ];
+
+/** Track product inquiry click (fire & forget) */
+function handleProductClick(productName: string) {
+  trackLead({
+    nama: 'Pengunjung Anonim',
+    nomor_wa: '-',
+    produk: productName,
+    tipe_lead: 'wa_click',
+    path: typeof window !== 'undefined' ? window.location.href : '/produk',
+  });
+}
 
 export default function ProdukPage() {
   return (
@@ -109,6 +121,7 @@ function ProdukContent() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.overlayBtn}
+                        onClick={() => handleProductClick(p.name)}
                       >
                         Tanya Produk Ini
                       </a>
@@ -123,6 +136,7 @@ function ProdukContent() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.cardLink}
+                      onClick={() => handleProductClick(p.name)}
                     >
                       Detail klik disini
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" /></svg>

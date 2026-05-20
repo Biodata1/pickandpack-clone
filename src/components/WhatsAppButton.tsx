@@ -3,8 +3,25 @@
 import { motion } from 'framer-motion';
 import styles from './WhatsAppButton.module.css';
 import { trackGAEvent } from '../lib/gtag';
+import { trackLead } from '../lib/tracking';
 
 export default function WhatsAppButton() {
+  const handleClick = () => {
+    // 1. Google Analytics (existing)
+    trackGAEvent('wa_cta_click', { source: 'floating_button' });
+
+    // 2. Track Lead ke Make.com via API Route (fire & forget)
+    trackLead({
+      nama: 'Pengunjung Anonim',
+      nomor_wa: '-',
+      produk: 'Konsultasi Umum',
+      tipe_lead: 'wa_click',
+      path: typeof window !== 'undefined' ? window.location.href : '',
+    });
+
+    // Browser akan otomatis membuka WA karena tag <a> memiliki href + target="_blank"
+  };
+
   return (
     <motion.a
       href="https://wa.me/6285777237523?text=Halo%20Printwork,%20saya%20ingin%20bertanya%20tentang%20kemasan%20custom."
@@ -12,7 +29,7 @@ export default function WhatsAppButton() {
       rel="noopener noreferrer"
       className={styles.waBtn}
       aria-label="Chat via WhatsApp"
-      onClick={() => trackGAEvent('wa_cta_click', { source: 'floating_button' })}
+      onClick={handleClick}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}

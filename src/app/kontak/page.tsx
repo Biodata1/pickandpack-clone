@@ -4,6 +4,7 @@ import { useState, FormEvent } from 'react';
 import { Metadata } from 'next';
 import Reveal from '@/components/RevealAnimation';
 import styles from './page.module.css';
+import { trackLead } from '@/lib/tracking';
 
 export default function KontakPage() {
   const [formData, setFormData] = useState({
@@ -16,6 +17,15 @@ export default function KontakPage() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    // Track Lead ke Make.com via API Route (fire & forget)
+    trackLead({
+      nama: formData.name,
+      nomor_wa: formData.phone,
+      produk: 'Custom Packaging (Kontak Form)',
+      tipe_lead: 'form_submit',
+      path: 'Kontak Page → WA Form',
+    });
 
     const waMessage = [
       `Halo Printwork, saya ingin bertanya tentang kemasan custom.`,
